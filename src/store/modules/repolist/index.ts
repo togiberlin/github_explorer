@@ -3,14 +3,14 @@ import actions from './actions';
 import getters from './getters';
 
 const state = {
-  repolistItems: [],
+  repoItems: [],
 };
 
-const repolistModule = {
+const repoModule = {
   state,
   mutations,
   actions,
   getters,
 };
 
-export default repolistModule;
+export default repoModule;

@@ -1,33 +1,36 @@
 # github_explorer
 
-## Project setup
-```
+## About this Project
+For background infos about this project, please check the [wiki](https://github.com/togiberlin/github_explorer/wiki).
+
+## Getting Started
+```bash
 npm install
 ```
 
 ### Compiles and hot-reloads for development
-```
+```bash
 npm run serve
 ```
 
 ### Compiles and minifies for production
-```
+```bash
 npm run build
 ```
 
 ### Run your unit tests
-```
-npm run test:unit
+```bash
+npm run test:unit # runs Jest
 ```
 
 ### Run your end-to-end tests
-```
-npm run test:e2e
+```bash
+npm run test:e2e  # starts Cypress.io
 ```
 
 ### Lints and fixes files
-```
-npm run lint
+```bash
+npm run lint      # uses ESLint with the AirBnB style guide
 ```
 
 ### Customize configuration

@@ -4,7 +4,7 @@
       <i class="fa fa-2x fa-github"></i>
     </div>
     <div class="repo-list">
-      <div class="product-list--item">
+      <div class="repo-list--item">
         <div>
           <h2 class="has-text-weight-bold">
             Linux Kernel
@@ -29,8 +29,19 @@
 </template>
 
 <script lang="ts">
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'RepoList',
+  computed: {
+    ...mapGetters([
+      'repoItems',
+    ]),
+  },
+  created() {
+    this.$store.dispatch('getRepoItems');
+  },
+  components: {},
 };
 </script>
 

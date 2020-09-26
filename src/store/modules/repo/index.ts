@@ -1,8 +1,9 @@
 import mutations from './mutations';
 import actions from './actions';
 import getters from './getters';
+import { RepoState } from './types';
 
-const state = {
+const state: RepoState = {
   repoItems: [],
 };
 

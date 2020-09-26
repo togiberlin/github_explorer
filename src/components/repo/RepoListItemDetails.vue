@@ -1,10 +1,11 @@
 <template>
-  <div>tbd</div>
+  <div>Hello world!</div>
 </template>
 
 <script lang="ts">
 export default {
   name: 'RepoListItemDetails',
+  props: ['repoItem'],
 };
 </script>
 

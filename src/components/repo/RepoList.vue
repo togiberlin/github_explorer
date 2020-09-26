@@ -3,33 +3,19 @@
     <div class="repos--header has-text-centered">
       <i class="fa fa-2x fa-github"></i>
     </div>
+    <!-- Repo search -->
     <div class="repo-list">
-      <div class="repo-list--item">
-        <div>
-          <h2 class="has-text-weight-bold">
-            Linux Kernel
-          </h2>
-          <span class="tag is-primary is-pulled-right has-text-white">
-              Add to favorites
-          </span>
-          <p>Some cool repo description</p>
-          <span class="has-text-primary has-text-weight-bold">
-            <i class="fa fa-code"></i> JavaScript
-          </span>
-          <span class="has-text-primary has-text-weight-bold">
-            <i class="fa fa-star"></i> 321 Stars
-          </span>
-          <span class="has-text-primary has-text-weight-bold">
-            <i class="fa fa-share-alt"></i> 1234 Forks
-          </span>
-        </div>
+      <div v-for="repoItem in repoItems" :key="repoItem.id" class="repo-list--item">
+        <RepoListItem :repoItem="repoItem" />
       </div>
     </div>
+    <!-- Repo pagination -->
   </div>
 </template>
 
 <script lang="ts">
 import { mapGetters } from 'vuex';
+import RepoListItem from './RepoListItem.vue';
 
 export default {
   name: 'RepoList',
@@ -39,9 +25,14 @@ export default {
     ]),
   },
   created() {
+    // FIXME: TS can't find injected $store.
+    // To fix warning, convert from VueJS2 options API to VueJS 3 composition API.
+    // @ts-ignore
     this.$store.dispatch('getRepoItems');
   },
-  components: {},
+  components: {
+    RepoListItem,
+  },
 };
 </script>
 

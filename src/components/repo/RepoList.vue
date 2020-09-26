@@ -1,5 +1,5 @@
 <template>
-  <div>tbd</div>
+  <div>World!</div>
 </template>
 
 <script lang="ts">

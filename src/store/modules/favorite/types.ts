@@ -1,1 +1,3 @@
-export enum FavoriteMutationTypes {};
+enum FavoriteMutationTypes {}
+
+export default FavoriteMutationTypes;

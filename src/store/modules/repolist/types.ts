@@ -1,1 +1,3 @@
-export enum RepolistMutationTypes {};
+enum RepolistMutationTypes {}
+
+export default RepolistMutationTypes;

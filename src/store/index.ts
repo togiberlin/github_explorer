@@ -1,12 +1,10 @@
 import { createStore } from 'vuex';
+import favoriteModule from './modules/favorite/index';
+import repolistModule from './modules/repolist/index';
 
 export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    favoriteModule,
+    repolistModule,
   },
 });

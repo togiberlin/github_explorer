@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { FavoriteItem, FavoriteMutationTypes, FavoriteState } from './types';
+import { FavoriteItem, FavoriteMutationTypes } from './types';
 
 const actions = {
   async getFavoriteItems(context: any) {
     try {
-      const response = await axios.get('/favorite');
+      const response = await axios.get<FavoriteItem[]>('http://localhost:3000/api/favorite');
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Fetching favorite items has failed: ${e}`);
@@ -17,7 +17,7 @@ const actions = {
     favoriteItem: FavoriteItem,
   ) {
     try {
-      const response = await axios.post('/favorite', favoriteItem);
+      const response = await axios.post('http://localhost:3000/api/favorite', favoriteItem);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Adding favorite item has failed: ${e}`);
@@ -30,7 +30,7 @@ const actions = {
     favoriteItem: FavoriteItem,
   ) {
     try {
-      const response = await axios.post<FavoriteItem>('/favorite/delete', favoriteItem);
+      const response = await axios.post<FavoriteItem>('http://localhost:3000/api/favorite/delete', favoriteItem);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing favorite item has failed: ${e}`);
@@ -40,7 +40,7 @@ const actions = {
 
   async removeAllFavoriteItems(context: any) {
     try {
-      const response = await axios.post('/favorite/delete/all');
+      const response = await axios.post('http://localhost:3000/api/favorite/delete/all');
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing all favorite item has failed: ${e}`);

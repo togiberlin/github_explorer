@@ -3,9 +3,13 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue';
+
+const RepoPaginationComponent = Vue.extend({
   name: 'RepoPagination',
-};
+});
+
+export default RepoPaginationComponent;
 </script>
 
 <style scoped lang="scss">

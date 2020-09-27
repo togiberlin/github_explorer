@@ -14,10 +14,11 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import RepoListItem from './RepoListItem.vue';
 
-export default {
+const RepoListComponent = Vue.extend({
   name: 'RepoList',
   computed: {
     ...mapGetters([
@@ -33,7 +34,9 @@ export default {
   components: {
     RepoListItem,
   },
-};
+});
+
+export default RepoListComponent;
 </script>
 
 <style scoped lang="scss">

@@ -1,33 +1,44 @@
 <template>
   <div>
-    <p class="favorite-item--title is-inline">{{ favoriteItem.title }}</p>
+    <p class="favorite-item--title is-inline">
+      <a :href="favoriteItem.owner.url">
+        {{ favoriteItem.owner.name }}
+      </a>
+      /
+      <a :href="favoriteItem.html_url">
+        {{ favoriteItem.name }}
+      </a>
+    </p>
     <div class="is-pulled-right">
       <i @click="addFavoriteItem(favoriteItem)"
         class="fa fa-arrow-circle-up favorite-item--modify"></i>
       <i @click="removeFavoriteItem(favoriteItem)"
         class="fa fa-arrow-circle-down favorite-item--modify"></i>
     </div>
-    <div class="favorite-item--content">
-      <span class="favorite-item--quantity has-text-grey is-pulled-right">
-        Quantity: {{ favoriteItem.quantity }}
-      </span>
-    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { mapActions } from 'vuex';
+import Vue from 'vue';
+import { mapActions, mapGetters } from 'vuex';
 
-export default {
+const FavoriteListItemComponent = Vue.extend({
   name: 'FavoriteListItem',
   props: ['favoriteItem'],
+  computed: {
+    ...mapGetters([
+      'favoriteItems',
+    ]),
+  },
   methods: {
     ...mapActions([
       'addFavoriteItem',
       'removeFavoriteItem',
     ]),
   },
-};
+});
+
+export default FavoriteListItemComponent;
 </script>
 
 <style scoped lang="scss">

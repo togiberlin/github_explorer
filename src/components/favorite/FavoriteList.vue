@@ -1,21 +1,21 @@
 <template>
   <div id="favorite">
     <div class="favorite--header has-text-centered">
-      <i class="fa fa-2x fa-shopping-cart"></i>
+      <i class="fa fa-2x fa-bookmark"></i>
     </div>
     <p v-if="!favoriteItems.length" class="favorite-empty-text has-text-centered">
       Add some favorite repos to your reading list!
     </p>
     <ul v-if="favoriteItems.length > 0">
-      <li v-for="cartItem in cartItems" :key="cartItem.id" class="favorite-item">
+      <li v-for="favoriteItem in favoriteItems" :key="favoriteItem.id" class="favorite-item">
         <FavoriteListItem :favoriteItem="favoriteItem" />
       </li>
       <div class="favorite-details">
-        <p>Total:
+        <p>Favorites selected:
           <span class="has-text-weight-bold">{{ favoriteQuantity }}</span>
         </p>
         <p @click="removeAllFavoriteItems"
-          class="cart-remove-all--text">
+          class="favorite-remove-all--text">
           <i class="fa fa-trash"></i>Clear all
         </p>
       </div>
@@ -27,16 +27,16 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 import FavoriteListItem from './FavoriteListItem.vue';
 
-export default {
+const FavoriteListComponent = Vue.extend({
   name: 'FavoriteList',
   computed: {
     ...mapGetters(['favoriteItems', 'favoriteQuantity']),
   },
   created() {
-    // @ts-ignore
     this.$store.dispatch('getFavoriteItems');
   },
   methods: {
@@ -45,7 +45,9 @@ export default {
   components: {
     FavoriteListItem,
   },
-};
+});
+
+export default FavoriteListComponent;
 </script>
 
 <style scoped lang="scss">

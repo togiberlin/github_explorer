@@ -13,26 +13,27 @@
       <i class="fa fa-user"></i> <a :href="repoItem.owner.url">{{ repoItem.owner.login }}</a>
     </span>
     <span class="has-text-primary has-text-weight-bold">
-      <i class="fa fa-code"></i> {{ repoItem.details?.language }}
+      <i class="fa fa-code"></i> {{ repoItem.details.language }}
     </span>
     <span class="has-text-primary has-text-weight-bold">
-      <i class="fa fa-star"></i> {{ repoItem.details?.stargazers_count }} Stars
+      <i class="fa fa-star"></i> {{ repoItem.details.stargazers_count }} Stars
     </span>
     <span class="has-text-primary has-text-weight-bold">
-      <i class="fa fa-star"></i> {{ repoItem.details?.watchers_count }} Watchers
+      <i class="fa fa-star"></i> {{ repoItem.details.watchers_count }} Watchers
     </span>
     <span class="has-text-primary has-text-weight-bold">
-      <i class="fa fa-share-alt"></i> {{ repoItem.details?.forks_count }} Forks
+      <i class="fa fa-share-alt"></i> {{ repoItem.details.forks_count }} Forks
     </span>
     <RepoListItemDetails :repoItem="repoItem" />
   </div>
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import { mapActions } from 'vuex';
 import RepoListItemDetails from './RepoListItemDetails.vue';
 
-export default {
+const RepoListItemComponent = Vue.extend({
   name: 'RepoListItem',
   props: ['repoItem'],
   methods: {
@@ -43,7 +44,9 @@ export default {
   components: {
     RepoListItemDetails,
   },
-};
+});
+
+export default RepoListItemComponent;
 </script>
 
 <style scoped lang="scss">

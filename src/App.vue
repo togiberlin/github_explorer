@@ -1,28 +1,31 @@
 <template>
-  <div class="container">
-    <div class="columns">
-      <div class="column is-3">
-        <FavoriteList />
-      </div>
+  <div id="app">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-3">
+          <FavoriteList />
+        </div>
 
-      <div class="column is-9">
-        <RepoList />
+        <div class="column is-9">
+          <RepoList />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import FavoriteList from './components/favorite/FavoriteList.vue';
 import RepoList from './components/repo/RepoList.vue';
 
-export default {
+export default Vue.extend({
   name: 'App',
   components: {
     FavoriteList,
     RepoList,
   },
-};
+});
 </script>
 
 <style lang="scss">

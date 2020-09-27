@@ -3,10 +3,14 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue';
+
+const RepoListItemDetails = Vue.extend({
   name: 'RepoListItemDetails',
   props: ['repoItem'],
-};
+});
+
+export default RepoListItemDetails;
 </script>
 
 <style scoped lang="scss">

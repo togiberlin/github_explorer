@@ -35,7 +35,7 @@ const actions = {
         context.commit(RepoMutationTypes.UPDATE_REPO_DETAILS, response.data);
       });
     } catch (e) {
-      console.error(`Fetching repo items has failed: ${e}`);
+      console.error(`Fetching repo details has failed: ${e}`);
     }
   },
 };

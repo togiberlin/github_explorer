@@ -2,6 +2,7 @@ import { RepoItem } from '../repo/types';
 
 export enum FavoriteMutationTypes {
   UPDATE_FAVORITE_ITEMS = 'UPDATE_FAVORITE_ITEMS',
+  UPDATE_FAVORITE_HTTP_ERROR = 'UPDATE_REPO_HTTP_ERROR',
 }
 
 export enum FavoriteActionTypes {
@@ -15,4 +16,5 @@ export interface FavoriteItem extends RepoItem {}
 
 export interface FavoriteState {
   favoriteItems: FavoriteItem[];
+  httpError?: Error;
 }

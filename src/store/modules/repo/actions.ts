@@ -23,7 +23,7 @@ const actions = {
       context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, response.data);
     } catch (e) {
       console.error(`Fetching repo items has failed: ${e}`);
-      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, {});
+      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, e);
     }
   },
 
@@ -38,6 +38,7 @@ const actions = {
       });
     } catch (e) {
       console.error(`Fetching repo details has failed: ${e}`);
+      context.commit(RepoMutationTypes.UPDATE_REPO_HTTP_ERROR, e);
     }
   },
 };

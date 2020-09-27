@@ -5,6 +5,7 @@ import { RepoState } from './types';
 
 const state: RepoState = {
   repoItems: [],
+  httpError: undefined,
 };
 
 const repoModule = {

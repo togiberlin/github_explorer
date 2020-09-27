@@ -8,7 +8,7 @@ const actions = {
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Fetching favorite items has failed: ${e}`);
-      // TODO: commit error object
+      context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, e);
     }
   },
 
@@ -21,7 +21,7 @@ const actions = {
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Adding favorite item has failed: ${e}`);
-      // TODO: commit error object
+      context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, e);
     }
   },
 
@@ -34,7 +34,7 @@ const actions = {
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing favorite item has failed: ${e}`);
-      // TODO: commit error object
+      context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, e);
     }
   },
 
@@ -44,7 +44,7 @@ const actions = {
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing all favorite item has failed: ${e}`);
-      // TODO: commit error object
+      context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, e);
     }
   },
 };

@@ -116,7 +116,7 @@ export interface RepoDetail {
 }
 
 export interface RepoItem {
-  error?: Error; // if the HTTP request inside a Vuex action has failed
+  isFetchingDetails: boolean;
   details?: RepoDetail; // this property is assigned after a 2nd HTTP request.
 
   id: number;
@@ -169,4 +169,5 @@ export interface RepoItem {
 
 export interface RepoState {
   repoItems: RepoItem[];
+  httpError?: Error;
 }

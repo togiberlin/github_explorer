@@ -35,15 +35,17 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/delete', (req, res) => {
+  console.log('deleting');
+
   fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     let favoriteRepos = JSON.parse(data);
 
-    favoriteRepos.map((favoriteRepo) => {
-      if (favoriteRepo.id === req.body.id && favoriteRepo.quantity > 1) {
-        favoriteRepo.quantity--;
-      } else if (favoriteRepo.id === req.body.id && favoriteRepo.quantity === 1) {
-        const favoriteIndexToRemove = favoriteRepos.findIndex(favoriteRepo => favoriteRepo.id === req.body.id);
-        favoriteRepos.splice(favoriteIndexToRemove, 1);
+    console.log(favoriteRepos);
+
+    favoriteRepos.map((favoriteRepo, index) => {
+      if (favoriteRepo.id === req.body.id) {
+        console.log(favoriteRepo.id, req.body.id);
+        favoriteRepos.splice(index, 1);
       }
     });
 

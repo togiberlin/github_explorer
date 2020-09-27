@@ -13,6 +13,10 @@ const mutations = {
     );
     state.repoItems[repoIndex].details = payload;
   },
+
+  [RepoMutationTypes.UPDATE_REPO_HTTP_ERROR](state: RepoState, payload: Error) {
+    state.httpError = payload;
+  },
 };
 
 export default mutations;

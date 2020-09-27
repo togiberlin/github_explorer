@@ -19,13 +19,15 @@ import Vue from 'vue';
 import FavoriteList from './components/favorite/FavoriteList.vue';
 import RepoList from './components/repo/RepoList.vue';
 
-export default Vue.extend({
+const AppComponent = Vue.extend({
   name: 'App',
   components: {
     FavoriteList,
     RepoList,
   },
 });
+
+export default AppComponent;
 </script>
 
 <style lang="scss">
@@ -38,6 +40,10 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+[v-cloak] {
+  display: none;
 }
 
 @media screen and (min-width: 769px) {

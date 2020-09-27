@@ -2,6 +2,7 @@
   <div id="repos" class="box">
     <div class="repos--header has-text-centered">
       <i class="fa fa-2x fa-github"></i>
+      <h1>GitHub Explorer</h1>
     </div>
     <!-- Repo search -->
     <div class="repo-list">
@@ -25,9 +26,12 @@ const RepoListComponent = Vue.extend({
       'repoItems',
     ]),
   },
-  created() {
+  beforeCreate() {
     // @ts-ignore
-    this.$store.dispatch('getRepoItems');
+    this.$store.dispatch('getRepoItems').then(() => {
+      // @ts-ignore
+      this.$store.dispatch('getRepoDetails');
+    });
   },
   components: {
     RepoListItem,

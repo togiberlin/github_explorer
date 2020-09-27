@@ -1,5 +1,5 @@
 <template>
-  <div>Hello world!</div>
+  <div>Repo Details tbd</div>
 </template>
 
 <script lang="ts">

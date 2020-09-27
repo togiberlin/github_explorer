@@ -14,12 +14,11 @@ router.get('/', (_req, res) => {
 router.post('/', (req, res) => {
   fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     const favoriteItems = JSON.parse(data);
-    const newFavoriteItem = { id: req.body.id, title: req.body.title, description: req.body.description, price: req.body.price, quantity: 1 };
+    const newFavoriteItem = req.body;
     let favoriteItemExists = false;
 
     favoriteItems.map((favoriteItem) => {
       if (favoriteItem.id === newFavoriteItem.id) {
-        favoriteItem.quantity++;
         favoriteItemExists = true;
       }
     });
@@ -35,7 +34,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.post('/delete', (req, res) => {
+router.delete('/delete', (req, res) => {
   fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     let favoriteRepos = JSON.parse(data);
 
@@ -55,7 +54,7 @@ router.post('/delete', (req, res) => {
   });
 });
 
-router.post('/delete/all', (_req, res) => {
+router.delete('/delete/all', (_req, res) => {
   fs.readFile(FAVORITE_DATA_PATH, () => {
     let emptyFavorite = [];
 

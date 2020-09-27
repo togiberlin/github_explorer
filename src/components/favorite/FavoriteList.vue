@@ -1,7 +1,8 @@
 <template>
   <div id="favorite">
     <div class="favorite--header has-text-centered">
-      <i class="fa fa-2x fa-bookmark"></i>
+      <i class="fa fa-2x fa-star"></i>
+      <h1>Bookmarks</h1>
     </div>
     <p v-if="!favoriteItems.length" class="favorite-empty-text has-text-centered">
       You have no bookmarked repos yet!

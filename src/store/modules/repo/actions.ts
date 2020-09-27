@@ -1,36 +1,43 @@
 import axios, { AxiosResponse } from 'axios';
 import { ActionContext } from 'vuex';
 import {
+  RepoActionTypes,
   RepoDetail, RepoItem, RepoMutationTypes, RepoState,
 } from './types';
 
 const actions = {
-  async getRepoItems(context: ActionContext<RepoState, RepoState>): Promise<void> {
+  async [RepoActionTypes.GET_REPO_ITEMS](
+    context: ActionContext<RepoState, RepoState>,
+  ): Promise<void> {
     try {
-      const repoItemsResponse: AxiosResponse<RepoItem[]> = await axios.get(
-        '/api/repositories', {
-        // 'https://api.github.com/repositories', {
-          headers: {
-            Accept: 'application/vnd.github.v3+json',
-          },
-        },
+      const response: AxiosResponse<RepoItem[]> = await axios.get(
+        '/api/repositories',
+        // 'https://api.github.com/repositories',
+        // {
+        //   headers: {
+        //     Accept: 'application/vnd.github.v3+json',
+        //   },
+        // },
       );
 
-      const payload = { ...repoItemsResponse.data };
-
-      payload.map(async (repoItem, index) => {
-        const repoDetailResponse: AxiosResponse<RepoDetail> = await axios.get(
-          `/api/repos/${repoItem.full_name}`,
-          // `https://api.github.com/repos/${repoItem.full_name}`,
-        );
-
-        payload[index].details = repoDetailResponse.data;
-      });
-
-      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, payload);
+      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, response.data);
     } catch (e) {
       console.error(`Fetching repo items has failed: ${e}`);
       context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, {});
+    }
+  },
+
+  async [RepoActionTypes.GET_REPO_DETAILS](
+    context: ActionContext<RepoState, RepoState>,
+  ): Promise<void> {
+    try {
+      context.state.repoItems.map(async (repoItem: RepoItem) => {
+        const response: AxiosResponse<RepoDetail> = await axios.get(`/api/repos/${repoItem.full_name}`);
+
+        context.commit(RepoMutationTypes.UPDATE_REPO_DETAILS, response.data);
+      });
+    } catch (e) {
+      console.error(`Fetching repo details has failed: ${e}`);
     }
   },
 };

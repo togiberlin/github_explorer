@@ -1,6 +1,7 @@
 <template>
   <div>
     <p class="favorite-item--title is-inline">
+      <i class="fa fa-github"></i>
       <a :href="favoriteItem.owner.html_url">
         {{ favoriteItem.owner.login }}
       </a>
@@ -10,10 +11,8 @@
       </a>
     </p>
     <div class="is-pulled-right">
-      <i @click="addFavoriteItem(favoriteItem)"
-        class="fa fa-arrow-circle-up favorite-item--modify"></i>
       <i @click="removeFavoriteItem(favoriteItem)"
-        class="fa fa-arrow-circle-down favorite-item--modify"></i>
+        class="fa fa-window-close favorite-item--modify"></i>
     </div>
   </div>
 </template>
@@ -32,7 +31,6 @@ const FavoriteListItemComponent = Vue.extend({
   },
   methods: {
     ...mapActions([
-      'addFavoriteItem',
       'removeFavoriteItem',
     ]),
   },

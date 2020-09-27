@@ -1,6 +1,12 @@
 export enum RepoMutationTypes {
   UPDATE_REPO_ITEMS = 'UPDATE_REPO_ITEMS',
   UPDATE_REPO_DETAILS = 'UPDATE_REPO_DETAILS',
+  UPDATE_REPO_HTTP_ERROR = 'UPDATE_REPO_HTTP_ERROR',
+}
+
+export enum RepoActionTypes {
+  GET_REPO_ITEMS = 'getRepoItems',
+  GET_REPO_DETAILS = 'getRepoDetails',
 }
 
 interface Owner {

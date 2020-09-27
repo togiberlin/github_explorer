@@ -4,7 +4,7 @@
       <i class="fa fa-2x fa-bookmark"></i>
     </div>
     <p v-if="!favoriteItems.length" class="favorite-empty-text has-text-centered">
-      Add some favorite repos to your reading list!
+      You have no bookmarked repos yet!
     </p>
     <ul v-if="favoriteItems.length > 0">
       <li v-for="favoriteItem in favoriteItems" :key="favoriteItem.id" class="favorite-item">
@@ -37,6 +37,7 @@ const FavoriteListComponent = Vue.extend({
     ...mapGetters(['favoriteItems', 'favoriteQuantity']),
   },
   created() {
+    // @ts-ignore
     this.$store.dispatch('getFavoriteItems');
   },
   methods: {

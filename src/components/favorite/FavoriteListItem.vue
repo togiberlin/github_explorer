@@ -1,8 +1,8 @@
 <template>
   <div>
     <p class="favorite-item--title is-inline">
-      <a :href="favoriteItem.owner.url">
-        {{ favoriteItem.owner.name }}
+      <a :href="favoriteItem.owner.html_url">
+        {{ favoriteItem.owner.login }}
       </a>
       /
       <a :href="favoriteItem.html_url">

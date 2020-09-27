@@ -26,8 +26,6 @@ const RepoListComponent = Vue.extend({
     ]),
   },
   created() {
-    // FIXME: TS can't find injected $store.
-    // To fix warning, convert from VueJS2 options API to VueJS 3 composition API.
     // @ts-ignore
     this.$store.dispatch('getRepoItems');
   },

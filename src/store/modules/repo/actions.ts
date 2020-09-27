@@ -7,7 +7,7 @@ import {
 const actions = {
   async getRepoItems(context: ActionContext<RepoState, RepoState>): Promise<void> {
     try {
-      const response: AxiosResponse<RepoItem[]> = await axios.get(
+      const repoItemsResponse: AxiosResponse<RepoItem[]> = await axios.get(
         'http://localhost:3000/repositories', {
         // 'https://api.github.com/repositories', {
           headers: {
@@ -16,26 +16,22 @@ const actions = {
         },
       );
 
-      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, response.data);
-    } catch (e) {
-      console.error(`Fetching repo items has failed: ${e}`);
-    }
-  },
+      const payload = { ...repoItemsResponse.data };
 
-  async getRepoDetails(
-    context: ActionContext<RepoState, RepoState>,
-  ): Promise<void> {
-    try {
-      context.state.repoItems.map(async (repoItem: RepoItem, index: number) => {
-        console.log(repoItem.full_name);
-        const response: AxiosResponse<RepoDetail> = await axios.get(
+      payload.map(async (repoItem, index) => {
+        console.log('Hello world!');
+        const repoDetailResponse: AxiosResponse<RepoDetail> = await axios.get(
           `http://localhost:3000/repos/${repoItem.full_name}`,
           // `https://api.github.com/repos/${repoItem.full_name}`,
         );
-        context.commit(RepoMutationTypes.UPDATE_REPO_DETAILS, response.data);
+
+        payload[index].details = repoDetailResponse.data;
       });
+
+      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, payload);
     } catch (e) {
-      console.error(`Fetching repo details has failed: ${e}`);
+      console.error(`Fetching repo items has failed: ${e}`);
+      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, {});
     }
   },
 };

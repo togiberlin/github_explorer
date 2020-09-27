@@ -110,6 +110,9 @@ export interface RepoDetail {
 }
 
 export interface RepoItem {
+  error?: Error; // if the HTTP request inside a Vuex action has failed
+  details?: RepoDetail; // this property is assigned after a 2nd HTTP request.
+
   id: number;
   node_id: string;
   name: string;
@@ -156,8 +159,6 @@ export interface RepoItem {
   labels_url: string;
   releases_url: string;
   deployments_url: string;
-
-  details?: RepoDetail; // this property is assigned after a 2nd HTTP request.
 }
 
 export interface RepoState {

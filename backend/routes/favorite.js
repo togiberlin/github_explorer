@@ -2,17 +2,17 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 
-const FAVORITE_DATA_FILE = require('../persistency/favorites.json');
+const FAVORITE_DATA_PATH = 'backend/persistency/favorites.json';
 
 router.get('/', (_req, res) => {
-  fs.readFile(FAVORITE_DATA_FILE, (_err, data) => {
+  fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     res.setHeader('Cache-Control', 'no-cache');
     res.json(JSON.parse(data));
   });
 });
 
 router.post('/', (req, res) => {
-  fs.readFile(FAVORITE_DATA_FILE, (_err, data) => {
+  fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     const favoriteItems = JSON.parse(data);
     const newFavoriteItem = { id: req.body.id, title: req.body.title, description: req.body.description, price: req.body.price, quantity: 1 };
     let favoriteItemExists = false;
@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
       favoriteItems.push(newFavoriteItem);
     }
 
-    fs.writeFile(FAVORITE_DATA_FILE, JSON.stringify(favoriteItems, null, 4), () => {
+    fs.writeFile(FAVORITE_DATA_PATH, JSON.stringify(favoriteItems, null, 4), () => {
       res.setHeader('Cache-Control', 'no-cache');
       res.json(favoriteItems);
     });
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/delete', (req, res) => {
-  fs.readFile(FAVORITE_DATA_FILE, (_err, data) => {
+  fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     let favoriteRepos = JSON.parse(data);
 
     favoriteRepos.map((favoriteRepo) => {
@@ -48,7 +48,7 @@ router.post('/delete', (req, res) => {
       }
     });
 
-    fs.writeFile(FAVORITE_DATA_FILE, JSON.stringify(favoriteRepos, null, 4), () => {
+    fs.writeFile(FAVORITE_DATA_PATH, JSON.stringify(favoriteRepos, null, 4), () => {
       res.setHeader('Cache-Control', 'no-cache');
       res.json(favoriteRepos);
     });
@@ -56,10 +56,10 @@ router.post('/delete', (req, res) => {
 });
 
 router.post('/delete/all', (_req, res) => {
-  fs.readFile(FAVORITE_DATA_FILE, () => {
+  fs.readFile(FAVORITE_DATA_PATH, () => {
     let emptyFavorite = [];
 
-    fs.writeFile(FAVORITE_DATA_FILE, JSON.stringify(emptyFavorite, null, 4), () => {
+    fs.writeFile(FAVORITE_DATA_PATH, JSON.stringify(emptyFavorite, null, 4), () => {
       res.json(emptyFavorite);
     });
   });

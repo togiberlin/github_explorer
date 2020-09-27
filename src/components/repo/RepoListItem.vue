@@ -35,7 +35,11 @@ import RepoListItemDetails from './RepoListItemDetails.vue';
 export default {
   name: 'RepoListItem',
   props: ['repoItem'],
-  methods: {},
+  methods: {
+    ...mapActions([
+      'addFavoriteItem',
+    ]),
+  },
   components: {
     RepoListItemDetails,
   },

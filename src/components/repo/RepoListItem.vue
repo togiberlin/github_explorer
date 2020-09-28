@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="has-text-weight-bold">
-      <a :href="repoItem.html_url">{{ repoItem.name }}</a>
+      <a :href="repoItem.html_url">{{ repoItem.owner.login }} / {{ repoItem.name }}</a>
     </h2>
     <span
       @click="addFavoriteItem(repoItem)"
@@ -14,7 +14,7 @@
       Show Details
     </span>
     <p>{{ repoItem.description }}</p>
-    <div v-if="repoItem.isDetailVisible">
+    <div v-show="repoItem.isDetailVisible">
       <RepoListItemDetails :repoItem="repoItem" />
     </div>
   </div>

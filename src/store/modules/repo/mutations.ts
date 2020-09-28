@@ -9,8 +9,10 @@ const mutations = {
 
   [RepoMutationTypes.UPDATE_REPO_DETAILS](state: RepoState, payload: RepoDetail) {
     const repoIndex = state.repoItems.findIndex(
-      (repoItem: RepoItem) => repoItem.full_name === payload.full_name,
+      (repoItem: RepoItem) => repoItem.id === payload.id,
     );
+
+    state.repoItems[repoIndex].isDetailVisible = false;
     state.repoItems[repoIndex].details = payload;
   },
 
@@ -24,6 +26,10 @@ const mutations = {
     );
 
     state.repoItems[repoItemIndex].isDetailVisible = !payload.isDetailVisible;
+  },
+
+  [RepoMutationTypes.CHANGE_PAGE](state: RepoState, payload: number) {
+    state.pagination.currentPage = payload;
   },
 };
 

@@ -6,24 +6,45 @@
     </div>
     <!-- Repo search -->
     <div class="repo-list">
-      <div v-for="repoItem in repoItems" :key="repoItem.id" class="repo-list--item">
+      <div v-for="repoItem in repoItemsForCurrentPage" :key="repoItem.id" class="repo-list--item">
         <RepoListItem :repoItem="repoItem" />
       </div>
     </div>
-    <!-- Repo pagination -->
+    <nav class="is-centered pagination is-small" role="navigation" aria-label="pagination">
+      <paginate
+        :page-count="pageCount"
+        :click-handler="changePage"
+        :container-class="'pagination-list'"
+        :prev-class="'hide'"
+        :next-class="'hide'"
+        :page-link-class="'pagination-link'"
+        :active-class="'is-current'"
+        :disabled-class="'pagination-ellipsis'"
+        :hide-prev-next="true">
+      </paginate>
+    </nav>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+import Paginate from 'vuejs-paginate';
 import RepoListItem from './RepoListItem.vue';
 
 const RepoListComponent = Vue.extend({
   name: 'RepoList',
   computed: {
     ...mapGetters([
-      'repoItems',
+      'repoItemsForCurrentPage',
+      'currentPage',
+      'itemsPerPage',
+      'pageCount',
+    ]),
+  },
+  methods: {
+    ...mapActions([
+      'changePage',
     ]),
   },
   beforeCreate() {
@@ -35,6 +56,7 @@ const RepoListComponent = Vue.extend({
   },
   components: {
     RepoListItem,
+    Paginate,
   },
 });
 
@@ -57,5 +79,9 @@ export default RepoListComponent;
 
 .repo-list--item {
   padding: 10px 0;
+}
+
+.hide {
+  display: false;
 }
 </style>

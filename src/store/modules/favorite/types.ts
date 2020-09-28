@@ -16,5 +16,5 @@ export interface FavoriteItem extends RepoItem {}
 
 export interface FavoriteState {
   favoriteItems: FavoriteItem[];
-  httpError?: Error;
+  httpError?: Error | null;
 }

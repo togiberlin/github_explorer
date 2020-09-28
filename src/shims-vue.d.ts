@@ -9,3 +9,7 @@ declare module 'vue-content-loader' {
 
   declare const ContentLoader: any;
 }
+
+declare module 'vuejs-paginate' {
+
+}

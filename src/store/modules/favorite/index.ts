@@ -5,7 +5,7 @@ import { FavoriteState } from './types';
 
 const state: FavoriteState = {
   favoriteItems: [],
-  httpError: undefined,
+  httpError: null,
 };
 
 const favoriteModule = {

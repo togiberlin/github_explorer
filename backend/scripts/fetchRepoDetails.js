@@ -5,13 +5,11 @@
  */
 
 const fs = require('fs');
-const path = require('path');
 const util = require('util');
 const axios = require('axios');
 const config = require('../../config.json');
 const repoItems = require('../fixtures/mockResponses/repositories/repositories-data.json');
 
-const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 const TARGET_FOLDER = 'backend/fixtures/mockResponses/repos';

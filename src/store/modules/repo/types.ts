@@ -3,12 +3,14 @@ export enum RepoMutationTypes {
   UPDATE_REPO_DETAILS = 'UPDATE_REPO_DETAILS',
   UPDATE_REPO_HTTP_ERROR = 'UPDATE_REPO_HTTP_ERROR',
   TOGGLE_REPO_DETAILS = 'TOGGLE_REPO_DETAILS',
+  CHANGE_PAGE = 'CHANGE_PAGE',
 }
 
 export enum RepoActionTypes {
   GET_REPO_ITEMS = 'getRepoItems',
   GET_REPO_DETAILS = 'getRepoDetails',
   TOGGLE_REPO_DETAILS = 'toggleRepoDetails',
+  CHANGE_PAGE = 'changePage',
 }
 
 interface Owner {
@@ -171,5 +173,9 @@ export interface RepoItem {
 
 export interface RepoState {
   repoItems: RepoItem[];
-  httpError?: Error;
+  pagination: {
+    currentPage: number;
+    itemsPerPage: number;
+  };
+  httpError?: Error | null;
 }

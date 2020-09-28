@@ -5,7 +5,11 @@ import { RepoState } from './types';
 
 const state: RepoState = {
   repoItems: [],
-  httpError: undefined,
+  pagination: {
+    currentPage: 1,
+    itemsPerPage: 5,
+  },
+  httpError: null,
 };
 
 const repoModule = {

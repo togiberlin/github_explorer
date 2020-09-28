@@ -5,7 +5,6 @@
  */
 
 const fs = require('fs');
-const path = require('path');
 const util = require('util');
 const axios = require('axios');
 const config = require('../../config.json');

@@ -4,6 +4,7 @@ import {
   RepoActionTypes,
   RepoDetail, RepoItem, RepoMutationTypes, RepoState,
 } from './types';
+import config from '../../../../config.json';
 
 const actions = {
   async [RepoActionTypes.GET_REPO_ITEMS](
@@ -16,6 +17,7 @@ const actions = {
         // {
         //   headers: {
         //     Accept: 'application/vnd.github.v3+json',
+        //     Authorization: `token ${config.ghOAuth2Token}`,
         //   },
         // },
       );

@@ -11,7 +11,8 @@
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
 
-    "fetch:repoDetails": "node backend/scripts/fetchRepoDetails"
+    "backend:fetch:repositories": "node backend/scripts/repositories",
+    "backend:fetch:repoDetails": "node backend/scripts/fetchRepoDetails"
   },
   "dependencies": {
     "axios": "^0.20.0",

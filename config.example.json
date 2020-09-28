@@ -1,4 +1,4 @@
 {
   "offlineMode": true,
-  "gh_oAuthToken": "INSERT_GITHUB_AUTH_TOKEN_HERE"
+  "ghOAuth2Token": "INSERT_GITHUB_AUTH_TOKEN_HERE_TO_INCREASE_RATE_LIMIT"
 }

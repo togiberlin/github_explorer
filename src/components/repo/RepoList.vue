@@ -63,6 +63,12 @@ const RepoListComponent = Vue.extend({
 export default RepoListComponent;
 </script>
 
+<style lang="scss">
+.hide {
+  display: none;
+}
+</style>
+
 <style scoped lang="scss">
 .tag {
   cursor: pointer;
@@ -79,9 +85,5 @@ export default RepoListComponent;
 
 .repo-list--item {
   padding: 10px 0;
-}
-
-.hide {
-  display: false;
 }
 </style>

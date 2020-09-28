@@ -27,3 +27,4 @@ pnpm-debug.log*
 
 # dev backend (for offline mode)
 backend/persistency/
+config.json

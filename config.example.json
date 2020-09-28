@@ -1,0 +1,4 @@
+{
+  "offlineMode": true,
+  "gh_oAuthToken": "INSERT_GITHUB_AUTH_TOKEN_HERE"
+}

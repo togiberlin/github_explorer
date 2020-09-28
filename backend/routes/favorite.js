@@ -34,17 +34,12 @@ router.post('/', (req, res) => {
   });
 });
 
-router.delete('/delete', (req, res) => {
-  console.log('deleting');
-
+router.post('/delete', (req, res) => {
   fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     let favoriteRepos = JSON.parse(data);
 
-    console.log(favoriteRepos);
-
     favoriteRepos.map((favoriteRepo, index) => {
       if (favoriteRepo.id === req.body.id) {
-        console.log(favoriteRepo.id, req.body.id);
         favoriteRepos.splice(index, 1);
       }
     });

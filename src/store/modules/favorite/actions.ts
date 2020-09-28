@@ -30,7 +30,7 @@ const actions = {
     favoriteItem: FavoriteItem,
   ) {
     try {
-      const response = await axios.delete<FavoriteItem>('/api/favorite/delete', favoriteItem);
+      const response = await axios.post<FavoriteItem>('/api/favorite/delete', favoriteItem);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing favorite item has failed: ${e}`);

@@ -8,8 +8,15 @@
       class="tag is-primary is-pulled-right has-text-white">
       Add to Favorites
     </span>
+    <span
+      @click="toggleRepoDetails(repoItem)"
+      class="tag is-primary is-pulled-right-has-text-white">
+      Show Details
+    </span>
     <p>{{ repoItem.description }}</p>
-    <RepoListItemDetails :repoItem="repoItem" />
+    <div v-if="repoItem.isDetailVisible">
+      <RepoListItemDetails :repoItem="repoItem" />
+    </div>
   </div>
 </template>
 
@@ -24,6 +31,7 @@ const RepoListItemComponent = Vue.extend({
   methods: {
     ...mapActions([
       'addFavoriteItem',
+      'toggleRepoDetails',
     ]),
   },
   components: {

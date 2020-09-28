@@ -17,6 +17,14 @@ const mutations = {
   [RepoMutationTypes.UPDATE_REPO_HTTP_ERROR](state: RepoState, payload: Error) {
     state.httpError = payload;
   },
+
+  [RepoMutationTypes.TOGGLE_REPO_DETAILS](state: RepoState, payload: RepoItem) {
+    const repoItemIndex = state.repoItems.findIndex(
+      (repoItem: RepoItem) => repoItem.id === payload.id,
+    );
+
+    state.repoItems[repoItemIndex].isDetailVisible = !payload.isDetailVisible;
+  },
 };
 
 export default mutations;

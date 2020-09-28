@@ -2,11 +2,13 @@ export enum RepoMutationTypes {
   UPDATE_REPO_ITEMS = 'UPDATE_REPO_ITEMS',
   UPDATE_REPO_DETAILS = 'UPDATE_REPO_DETAILS',
   UPDATE_REPO_HTTP_ERROR = 'UPDATE_REPO_HTTP_ERROR',
+  TOGGLE_REPO_DETAILS = 'TOGGLE_REPO_DETAILS',
 }
 
 export enum RepoActionTypes {
   GET_REPO_ITEMS = 'getRepoItems',
   GET_REPO_DETAILS = 'getRepoDetails',
+  TOGGLE_REPO_DETAILS = 'toggleRepoDetails',
 }
 
 interface Owner {
@@ -116,7 +118,7 @@ export interface RepoDetail {
 }
 
 export interface RepoItem {
-  isFetchingDetails: boolean;
+  isDetailVisible: boolean;
   details?: RepoDetail; // this property is assigned after a 2nd HTTP request.
 
   id: number;

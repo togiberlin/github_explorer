@@ -21,12 +21,8 @@ app.use((req, res, next) => {
 });
 
 const favoriteRoutes = require('./routes/favorite');
-const repositoriesRoutes = require('./routes/repositories');
-const reposRoutes = require('./routes/repos');
 
 app.use('/api/favorite', favoriteRoutes);
-app.use('/api/repositories', repositoriesRoutes);
-app.use('/api/repos', reposRoutes);
 
 app.listen(app.get('port'), () => {
   console.log(`Find the server at: http://localhost:${app.get('port')}/`);

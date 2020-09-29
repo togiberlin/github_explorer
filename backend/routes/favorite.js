@@ -34,12 +34,22 @@ router.post('/', (req, res) => {
   });
 });
 
-router.post('/delete', (req, res) => {
+router.delete('/', (_req, res) => {
+  fs.readFile(FAVORITE_DATA_PATH, () => {
+    let emptyFavorite = [];
+
+    fs.writeFile(FAVORITE_DATA_PATH, JSON.stringify(emptyFavorite, null, 4), () => {
+      res.json(emptyFavorite);
+    });
+  });
+});
+
+router.delete('/:id', (req, res) => {
   fs.readFile(FAVORITE_DATA_PATH, (_err, data) => {
     let favoriteRepos = JSON.parse(data);
 
     favoriteRepos.map((favoriteRepo, index) => {
-      if (favoriteRepo.id === req.body.id) {
+      if (favoriteRepo.id === parseInt(req.params.id)) {
         favoriteRepos.splice(index, 1);
       }
     });
@@ -47,16 +57,6 @@ router.post('/delete', (req, res) => {
     fs.writeFile(FAVORITE_DATA_PATH, JSON.stringify(favoriteRepos, null, 4), () => {
       res.setHeader('Cache-Control', 'no-cache');
       res.json(favoriteRepos);
-    });
-  });
-});
-
-router.delete('/delete/all', (_req, res) => {
-  fs.readFile(FAVORITE_DATA_PATH, () => {
-    let emptyFavorite = [];
-
-    fs.writeFile(FAVORITE_DATA_PATH, JSON.stringify(emptyFavorite, null, 4), () => {
-      res.json(emptyFavorite);
     });
   });
 });

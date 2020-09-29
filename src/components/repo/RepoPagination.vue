@@ -32,7 +32,6 @@ const RepoPaginationComponent = Vue.extend({
   methods: {
     onClickPagination(desiredPage: number) {
       this.$store.dispatch(RepoActionTypes.CHANGE_PAGE, desiredPage);
-      // this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS_FOR_PAGE);
     },
   },
   components: {

@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { ActionContext } from 'vuex';
+import { RepoState } from '../repo/types';
 import { FavoriteActionTypes, FavoriteItem, FavoriteMutationTypes } from './types';
 
 const actions = {
   async [FavoriteActionTypes.GET_FAVORITE_ITEMS](
-    context: ActionContext<FavoriteItem, FavoriteItem>,
+    context: ActionContext<FavoriteItem, RepoState>,
   ) {
     try {
       const response = await axios.get<FavoriteItem[]>('/api/favorite');
@@ -16,7 +17,7 @@ const actions = {
   },
 
   async [FavoriteActionTypes.ADD_FAVORITE_ITEM](
-    context: ActionContext<FavoriteItem, FavoriteItem>,
+    context: ActionContext<FavoriteItem, RepoState>,
     favoriteItem: FavoriteItem,
   ) {
     try {
@@ -29,7 +30,7 @@ const actions = {
   },
 
   async [FavoriteActionTypes.REMOVE_FAVORITE_ITEM](
-    context: ActionContext<FavoriteItem, FavoriteItem>,
+    context: ActionContext<FavoriteItem, RepoState>,
     favoriteItem: FavoriteItem,
   ) {
     try {
@@ -42,7 +43,7 @@ const actions = {
   },
 
   async [FavoriteActionTypes.REMOVE_ALL_FAVORITE_ITEMS](
-    context: ActionContext<FavoriteItem, FavoriteItem>,
+    context: ActionContext<FavoriteItem, RepoState>,
   ) {
     try {
       const response = await axios.delete<[]>('/api/favorite/');

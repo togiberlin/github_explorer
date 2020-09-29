@@ -10,7 +10,7 @@
       <i class="fa fa-star"></i> {{ repoItem.stargazers_count }}
     </span>
     <span class="pl-2 pr-2">
-      <i class="fa fa-binoculars">
+      <i class="fa fa-eye">
       </i> {{ repoItem.watchers_count }}
     </span>
     <span class="pl-2">
@@ -43,7 +43,7 @@ export default RepoListItemKpiComponent;
   color: #FFC65D;
 };
 
-.fa-binoculars {
+.fa-eye {
   color: #F16645;
 }
 

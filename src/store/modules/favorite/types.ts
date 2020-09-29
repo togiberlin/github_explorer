@@ -12,6 +12,11 @@ export enum FavoriteActionTypes {
   REMOVE_ALL_FAVORITE_ITEMS = 'removeAllFavoriteItems',
 }
 
+export enum FavoriteGetterTypes {
+  FAVORITE_ITEMS = 'favoriteItems',
+  FAVORITE_QUANTITY = 'favoriteQuantity',
+}
+
 export interface FavoriteItem extends RepoItem {}
 
 export interface FavoriteState {

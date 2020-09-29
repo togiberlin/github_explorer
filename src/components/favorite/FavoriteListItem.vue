@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts">
+import { FavoriteActionTypes, FavoriteGetterTypes } from '@/store/modules/favorite/types';
 import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 
@@ -26,12 +27,12 @@ const FavoriteListItemComponent = Vue.extend({
   props: ['favoriteItem'],
   computed: {
     ...mapGetters([
-      'favoriteItems',
+      FavoriteGetterTypes.FAVORITE_ITEMS,
     ]),
   },
   methods: {
     ...mapActions([
-      'removeFavoriteItem',
+      FavoriteActionTypes.REMOVE_FAVORITE_ITEM,
     ]),
   },
 });

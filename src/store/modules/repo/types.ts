@@ -13,6 +13,15 @@ export enum RepoActionTypes {
   CHANGE_PAGE = 'changePage',
 }
 
+export enum RepoGetterTypes {
+  REPO_ITEMS = 'repoItems',
+  REPO_ITEMS_FOR_CURRENT_PAGE = 'repoItemsForCurrentPage',
+  HTTP_ERROR = 'httpError',
+  CURRENT_PAGE = 'currentPage',
+  ITEMS_PER_PAGE = 'itemsPerPage',
+  PAGE_COUNT = 'pageCount',
+}
+
 interface Owner {
   login: string;
   id: number;

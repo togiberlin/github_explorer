@@ -1,8 +1,8 @@
-import { FavoriteState } from './types';
+import { FavoriteGetterTypes, FavoriteState } from './types';
 
 const getters = {
-  favoriteItems: (state: FavoriteState) => state.favoriteItems,
-  favoriteQuantity: (state: FavoriteState) => state.favoriteItems.length,
+  [FavoriteGetterTypes.FAVORITE_ITEMS]: (state: FavoriteState) => state.favoriteItems,
+  [FavoriteGetterTypes.FAVORITE_QUANTITY]: (state: FavoriteState) => state.favoriteItems.length,
 };
 
 export default getters;

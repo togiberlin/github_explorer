@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import RepoListItem from './RepoListItem.vue';
@@ -26,14 +27,14 @@ const RepoListComponent = Vue.extend({
   name: 'RepoList',
   computed: {
     ...mapGetters([
-      'repoItemsForCurrentPage',
+      RepoGetterTypes.REPO_ITEMS_FOR_CURRENT_PAGE,
     ]),
   },
   beforeCreate() {
     // @ts-ignore
-    this.$store.dispatch('getRepoItems').then(() => {
+    this.$store.dispatch(RepoActionTypes.GET_REPO_ITEMS).then(() => {
       // @ts-ignore
-      this.$store.dispatch('getRepoDetails');
+      this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS);
     });
   },
   components: {

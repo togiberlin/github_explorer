@@ -18,17 +18,18 @@
 import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 import Paginate from 'vuejs-paginate';
+import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
 
 const RepoPaginationComponent = Vue.extend({
   name: 'RepoPagination',
   computed: {
     ...mapGetters([
-      'pageCount',
+      RepoGetterTypes.PAGE_COUNT,
     ]),
   },
   methods: {
     ...mapActions([
-      'changePage',
+      RepoActionTypes.CHANGE_PAGE,
     ]),
   },
   components: {

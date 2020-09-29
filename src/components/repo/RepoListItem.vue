@@ -21,6 +21,8 @@
 </template>
 
 <script lang="ts">
+import { FavoriteActionTypes } from '@/store/modules/favorite/types';
+import { RepoActionTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 import RepoListItemDetails from './RepoListItemDetails.vue';
@@ -30,8 +32,8 @@ const RepoListItemComponent = Vue.extend({
   props: ['repoItem'],
   methods: {
     ...mapActions([
-      'addFavoriteItem',
-      'toggleRepoDetails',
+      FavoriteActionTypes.ADD_FAVORITE_ITEM,
+      RepoActionTypes.TOGGLE_REPO_DETAILS,
     ]),
   },
   components: {

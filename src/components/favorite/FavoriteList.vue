@@ -21,9 +21,7 @@
         </p>
       </div>
     </ul>
-    <button :disabled="!favoriteItems.length" class="button is-primary">
-      Share via e-mail<span class="has-text-weight-bold"></span>
-    </button>
+    <FavoriteShareEmail :favoriteItems="favoriteItems" />
   </div>
 </template>
 
@@ -32,6 +30,7 @@ import { FavoriteActionTypes, FavoriteGetterTypes } from '@/store/modules/favori
 import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 import FavoriteListItem from './FavoriteListItem.vue';
+import FavoriteShareEmail from './FavoriteShareEmail.vue';
 
 const FavoriteListComponent = Vue.extend({
   name: 'FavoriteList',
@@ -52,6 +51,7 @@ const FavoriteListComponent = Vue.extend({
   },
   components: {
     FavoriteListItem,
+    FavoriteShareEmail,
   },
 });
 

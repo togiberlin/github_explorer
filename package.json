@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "mailto-link": "^1.0.0",
     "vue": "^2.6.11",
     "vue-content-loader": "^0.2.3",
     "vuejs-paginate": "^2.1.0",

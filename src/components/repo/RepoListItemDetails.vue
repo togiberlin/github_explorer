@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-import { RepoItem } from '@/store/modules/repo/types';
 import Vue from 'vue';
 
 const RepoListItemDetails = Vue.extend({

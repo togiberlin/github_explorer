@@ -12,9 +12,9 @@ declare module 'vuejs-paginate' {
 declare module 'mailto-link' {
   export default function mailtoLink(
     options: {
-      to?: string | string[],
-      subject?: string,
-      body?: string,
+      to?: string | string[];
+      subject?: string;
+      body?: string;
     },
   ): string;
 }

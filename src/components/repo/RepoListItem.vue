@@ -20,7 +20,7 @@
 import { FavoriteActionTypes } from '@/store/modules/favorite/types';
 import { RepoActionTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 import RepoListItemKpi from './RepoListItemKpi.vue';
 import RepoListItemDetails from './RepoListItemDetails.vue';
 

@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
+import { RepoGetterTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import RepoSearch from './RepoSearch.vue';

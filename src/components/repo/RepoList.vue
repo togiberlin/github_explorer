@@ -62,4 +62,8 @@ export default RepoListComponent;
 .repo-list--item {
   padding: 10px 0;
 }
+
+.repo-pagination {
+  padding: 10px 0;
+}
 </style>

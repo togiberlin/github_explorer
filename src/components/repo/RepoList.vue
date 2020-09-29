@@ -10,9 +10,7 @@
         <RepoListItem :repoItem="repoItem" />
       </div>
     </div>
-    <div class="repo-pagination">
-      <RepoPagination />
-    </div>
+    <RepoPagination />
   </div>
 </template>
 
@@ -30,13 +28,6 @@ const RepoListComponent = Vue.extend({
     ...mapGetters([
       RepoGetterTypes.REPO_ITEMS_FOR_CURRENT_PAGE,
     ]),
-  },
-  beforeCreate() {
-    // @ts-ignore
-    this.$store.dispatch(RepoActionTypes.GET_REPO_ITEMS).then(() => {
-      // @ts-ignore
-      this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS_FOR_PAGE);
-    });
   },
   components: {
     RepoSearch,

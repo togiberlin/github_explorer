@@ -1,17 +1,19 @@
 <template>
-  <nav class="is-centered pagination is-small" role="navigation" aria-label="pagination">
-    <paginate
-      :page-count="pageCount"
-      :click-handler="onClickPagination"
-      :container-class="'pagination-list'"
-      :prev-class="'hide'"
-      :next-class="'hide'"
-      :page-link-class="'pagination-link'"
-      :active-class="'is-current'"
-      :disabled-class="'pagination-ellipsis'"
-      :hide-prev-next="true">
-    </paginate>
-  </nav>
+  <div class="repo-pagination">
+    <nav class="is-centered pagination is-small" role="navigation" aria-label="pagination">
+      <paginate
+        :page-count="pageCount"
+        :click-handler="onClickPagination"
+        :container-class="'pagination-list'"
+        :prev-class="'hide'"
+        :next-class="'hide'"
+        :page-link-class="'pagination-link'"
+        :active-class="'is-current'"
+        :disabled-class="'pagination-ellipsis'"
+        :hide-prev-next="true">
+      </paginate>
+    </nav>
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,9 +30,9 @@ const RepoPaginationComponent = Vue.extend({
     ]),
   },
   methods: {
-    onClickPagination(page: number) {
-      this.$store.dispatch(RepoActionTypes.CHANGE_PAGE, page);
-      this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS_FOR_PAGE);
+    onClickPagination(desiredPage: number) {
+      this.$store.dispatch(RepoActionTypes.CHANGE_PAGE, desiredPage);
+      // this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS_FOR_PAGE);
     },
   },
   components: {

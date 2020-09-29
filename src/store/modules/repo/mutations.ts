@@ -1,19 +1,10 @@
 import {
-  RepoMutationTypes, RepoState, RepoItem, RepoDetail,
+  RepoMutationTypes, RepoState, RepoItem,
 } from './types';
 
 const mutations = {
   [RepoMutationTypes.UPDATE_REPO_ITEMS](state: RepoState, payload: RepoItem[]) {
     state.repoItems = payload;
-  },
-
-  [RepoMutationTypes.UPDATE_REPO_DETAILS](state: RepoState, payload: RepoDetail) {
-    const repoIndex = state.repoItems.findIndex(
-      (repoItem: RepoItem) => repoItem.id === payload.id,
-    );
-
-    state.repoItems[repoIndex].isDetailVisible = false;
-    state.repoItems[repoIndex].details = payload;
   },
 
   [RepoMutationTypes.UPDATE_REPO_HTTP_ERROR](state: RepoState, payload: Error) {

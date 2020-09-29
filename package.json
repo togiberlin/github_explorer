@@ -9,9 +9,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint",
-    "backend:fetch:repositories": "node backend/scripts/repositories",
-    "backend:fetch:repoDetails": "node backend/scripts/fetchRepoDetails"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.20.0",

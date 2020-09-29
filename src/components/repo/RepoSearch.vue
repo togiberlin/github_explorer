@@ -7,11 +7,11 @@
             v-model="searchParams.q"
             class="input"
             type="text"
-            placeholder="Enter search query and type enter ...">
+            placeholder="Enter search query and hit enter ...">
           <span class="icon is-small is-left">
             <i class="fa fa-search"></i>
          </span>
-         <span v-if="searchParams.q" class="icon is-small is-right">
+         <span v-if="searchParams.q" class="icon is-small is-right is-blinking">
            <i class="fa fa-level-down fa-rotate-90 is-blinking"></i>
          </span>
         </div>
@@ -86,10 +86,10 @@ export default RepoSearchComponent;
 
 <style scoped lang="scss">
 .is-blinking {
-  animation: blinker 1s linear infinite;
+  animation: blinkerAnimation 1s linear infinite;
 }
 
-@keyframes blinker {
+@keyframes blinkerAnimation {
   50% {
     opacity: 0;
   }

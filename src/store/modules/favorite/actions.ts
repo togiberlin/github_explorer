@@ -17,7 +17,7 @@ const actions = {
     favoriteItem: FavoriteItem,
   ) {
     try {
-      const response = await axios.post('/api/favorite', favoriteItem);
+      const response = await axios.post<FavoriteItem>('/api/favorite', favoriteItem);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Adding favorite item has failed: ${e}`);
@@ -30,7 +30,7 @@ const actions = {
     favoriteItem: FavoriteItem,
   ) {
     try {
-      const response = await axios.post<FavoriteItem>('/api/favorite/delete', favoriteItem);
+      const response = await axios.delete<FavoriteItem>(`/api/favorite/${favoriteItem.id}`);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing favorite item has failed: ${e}`);
@@ -40,7 +40,7 @@ const actions = {
 
   async [FavoriteActionTypes.REMOVE_ALL_FAVORITE_ITEMS](context: any) {
     try {
-      const response = await axios.delete('/api/favorite/delete/all');
+      const response = await axios.delete<[]>('/api/favorite/');
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing all favorite item has failed: ${e}`);

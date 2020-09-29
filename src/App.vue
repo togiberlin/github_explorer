@@ -42,7 +42,7 @@ html, body {
   justify-content: center;
 }
 
-[v-cloak] {
+.hide {
   display: none;
 }
 

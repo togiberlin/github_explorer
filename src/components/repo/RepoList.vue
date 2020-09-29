@@ -10,41 +10,23 @@
         <RepoListItem :repoItem="repoItem" />
       </div>
     </div>
-    <nav class="is-centered pagination is-small" role="navigation" aria-label="pagination">
-      <paginate
-        :page-count="pageCount"
-        :click-handler="changePage"
-        :container-class="'pagination-list'"
-        :prev-class="'hide'"
-        :next-class="'hide'"
-        :page-link-class="'pagination-link'"
-        :active-class="'is-current'"
-        :disabled-class="'pagination-ellipsis'"
-        :hide-prev-next="true">
-      </paginate>
-    </nav>
+    <div class="repo-pagination">
+      <RepoPagination />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapGetters, mapActions } from 'vuex';
-import Paginate from 'vuejs-paginate';
+import { mapGetters } from 'vuex';
 import RepoListItem from './RepoListItem.vue';
+import RepoPagination from './RepoPagination.vue';
 
 const RepoListComponent = Vue.extend({
   name: 'RepoList',
   computed: {
     ...mapGetters([
       'repoItemsForCurrentPage',
-      'currentPage',
-      'itemsPerPage',
-      'pageCount',
-    ]),
-  },
-  methods: {
-    ...mapActions([
-      'changePage',
     ]),
   },
   beforeCreate() {
@@ -56,18 +38,12 @@ const RepoListComponent = Vue.extend({
   },
   components: {
     RepoListItem,
-    Paginate,
+    RepoPagination,
   },
 });
 
 export default RepoListComponent;
 </script>
-
-<style lang="scss">
-.hide {
-  display: none;
-}
-</style>
 
 <style scoped lang="scss">
 .tag {

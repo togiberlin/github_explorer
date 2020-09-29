@@ -2,7 +2,7 @@
   <nav class="is-centered pagination is-small" role="navigation" aria-label="pagination">
     <paginate
       :page-count="pageCount"
-      :click-handler="changePage"
+      :click-handler="onClickPagination"
       :container-class="'pagination-list'"
       :prev-class="'hide'"
       :next-class="'hide'"
@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import Paginate from 'vuejs-paginate';
 import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
 
@@ -28,9 +28,10 @@ const RepoPaginationComponent = Vue.extend({
     ]),
   },
   methods: {
-    ...mapActions([
-      RepoActionTypes.CHANGE_PAGE,
-    ]),
+    onClickPagination(page: number) {
+      this.$store.dispatch(RepoActionTypes.CHANGE_PAGE, page);
+      this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS_FOR_PAGE);
+    },
   },
   components: {
     Paginate,

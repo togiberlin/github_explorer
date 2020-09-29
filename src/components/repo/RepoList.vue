@@ -1,10 +1,10 @@
 <template>
   <div id="repos" class="box">
-    <div class="repos--header has-text-centered">
+    <div class="repo--header has-text-centered">
       <i class="fa fa-2x fa-github"></i>
       <h1>GitHub Explorer</h1>
     </div>
-    <!-- Repo search -->
+    <RepoSearch />
     <div class="repo-list">
       <div v-for="repoItem in repoItemsForCurrentPage" :key="repoItem.id" class="repo-list--item">
         <RepoListItem :repoItem="repoItem" />
@@ -20,6 +20,7 @@
 import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
+import RepoSearch from './RepoSearch.vue';
 import RepoListItem from './RepoListItem.vue';
 import RepoPagination from './RepoPagination.vue';
 
@@ -34,10 +35,11 @@ const RepoListComponent = Vue.extend({
     // @ts-ignore
     this.$store.dispatch(RepoActionTypes.GET_REPO_ITEMS).then(() => {
       // @ts-ignore
-      this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS);
+      this.$store.dispatch(RepoActionTypes.GET_REPO_DETAILS_FOR_PAGE);
     });
   },
   components: {
+    RepoSearch,
     RepoListItem,
     RepoPagination,
   },

@@ -8,13 +8,8 @@
       class="tag is-primary is-pulled-right has-text-white">
       Add to Favorites
     </span>
-    <span
-      @click="toggleRepoDetails(repoItem)"
-      class="tag is-primary is-pulled-right-has-text-white">
-      Show Details
-    </span>
     <p>{{ repoItem.description }}</p>
-    <div v-show="repoItem.isDetailVisible">
+    <div>
       <RepoListItemDetails :repoItem="repoItem" />
     </div>
   </div>

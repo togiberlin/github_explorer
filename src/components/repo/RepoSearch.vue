@@ -10,14 +10,14 @@
             placeholder="Enter search query and hit enter ...">
           <span class="icon is-small is-left">
             <i class="fa fa-search"></i>
-         </span>
+          </span>
          <span v-if="searchParams.q" class="icon is-small is-right is-blinking">
            <i class="fa fa-level-down fa-rotate-90 is-blinking"></i>
          </span>
         </div>
       </div>
       <div class="level">
-      <div class="field level-item">
+      <div class="field level-item pt-2">
         <div class="select control">
           <select v-model="searchParams.sort">
             <option value="">Sort by Relevancy (default)</option>
@@ -28,7 +28,7 @@
           </select>
         </div>
       </div>
-      <div class="field level-item">
+      <div class="field level-item pt-2">
         <div class="select control">
           <select :disabled="!searchParams.sort" v-model="searchParams.order">
             <option disabled value="">Ordering</option>
@@ -40,7 +40,7 @@
       </div>
     </form>
 
-    <div v-if="isFetchingData" class="level">
+    <div v-if="isFetchingData" class="level pt-4">
       <diamond class="level-item"></diamond>
     </div>
   </div>

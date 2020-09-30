@@ -55,7 +55,7 @@
 import Vue from 'vue';
 
 const RepoListItemDetails = Vue.extend({
-  name: 'RepoListItemDetails',
+  name: 'RepoListItemDetail',
   props: ['repoItem'],
   data() {
     return {

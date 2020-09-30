@@ -22,7 +22,7 @@ import { RepoActionTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapActions } from 'vuex';
 import RepoListItemKpi from './RepoListItemKpi.vue';
-import RepoListItemDetails from './RepoListItemDetails.vue';
+import RepoListItemDetail from './RepoListItemDetail.vue';
 
 const RepoListItemComponent = Vue.extend({
   name: 'RepoListItem',
@@ -34,7 +34,7 @@ const RepoListItemComponent = Vue.extend({
   },
   components: {
     RepoListItemKpi,
-    RepoListItemDetails,
+    RepoListItemDetail,
   },
 });
 

@@ -11,14 +11,13 @@
     <p>{{ repoItem.description }}</p>
     <div>
       <RepoListItemKpi :repoItem="repoItem" />
-      <RepoListItemDetails :repoItem="repoItem" />
+      <RepoListItemDetail :repoItem="repoItem" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { FavoriteActionTypes } from '@/store/modules/favorite/types';
-import { RepoActionTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapActions } from 'vuex';
 import RepoListItemKpi from './RepoListItemKpi.vue';

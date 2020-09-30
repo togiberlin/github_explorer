@@ -11,7 +11,7 @@ const factory = (values = {}) => {
   });
 };
 
-describe('RepoListItem', () => {
+describe.skip('RepoListItem', () => {
   it('tbd', () => {
     const wrapper = factory();
 

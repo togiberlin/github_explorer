@@ -11,7 +11,7 @@ const factory = (values = {}) => {
   });
 };
 
-describe('FavoriteListItem', () => {
+describe.skip('FavoriteListItem', () => {
   it('tbd', () => {
     const wrapper = factory();
 

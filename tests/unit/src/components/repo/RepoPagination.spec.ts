@@ -11,7 +11,7 @@ const factory = (values = {}) => {
   });
 };
 
-describe('RepoPagination', () => {
+describe.skip('RepoPagination', () => {
   it('tbd', () => {
     const wrapper = factory();
 

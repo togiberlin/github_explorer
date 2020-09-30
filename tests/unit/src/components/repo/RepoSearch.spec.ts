@@ -11,7 +11,7 @@ const factory = (values = {}) => {
   });
 };
 
-describe('RepoSearch', () => {
+describe.skip('RepoSearch', () => {
   it('', () => {
     const wrapper = factory();
 

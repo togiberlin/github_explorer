@@ -11,7 +11,7 @@ const factory = (values = {}) => {
   });
 };
 
-describe('FavoriteShareEmail', () => {
+describe.skip('FavoriteShareEmail', () => {
   it('tbd', () => {
     const wrapper = factory();
 

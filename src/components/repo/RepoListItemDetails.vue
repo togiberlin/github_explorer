@@ -10,31 +10,49 @@
         <span v-text="toggleText[isDetailVisible * 1]" class="is-clickable is-gray pl-2"></span>
       </div>
     </div>
-    <div v-if="isDetailVisible"
-      class="level">
-      <span class="level-item pr-2">
-        <i class="fa fa-user"></i> <a :href="repoItem.owner.url">{{ repoItem.owner.login }}</a>
-      </span>
-      <span class="level-item pl-2 pr-2">
-        <i class="fa fa-code"></i> {{ repoItem.language }}
-      </span>
-      <span class="level-item pl-2 pr-2">
-        <i class="fa fa-star"></i> {{ repoItem.stargazers_count }}
-      </span>
-      <span class="level-item pl-2 pr-2">
-        <i class="fa fa-eye">
-        </i> {{ repoItem.watchers_count }}
-      </span>
-      <span class="level-item pl-2">
-        <i class="fa fa-share-alt"></i> {{ repoItem.forks_count }}
-      </span>
+    <div v-if="isDetailVisible">
+      <div class="level">
+        <span class="level-item">
+          SSH Clone URL: <pre class="ml-2 pl-1 pr-1">{{ repoItem.ssh_url }}</pre>
+        </span>
+
+      </div>
+      <div class="level">
+        <span class="level-item">
+          HTTPS Clone URL: <pre class="ml-2 pl-1 pr-2">{{ repoItem.clone_url }}</pre>
+        </span>
+      </div>
+      <div class="level">
+        <span class="level-item pr-2">
+          Size: {{ repoItem.size / 1000 }} MByte
+        </span>
+        <span class="level-item pr-2">
+          Is Archived: {{ repoItem.archived }}
+        </span>
+        <span class="level-item pl-2 pr-2">
+          Is Fork: {{ repoItem.fork }}
+        </span>
+        <span class="level-item pl-2 pr-2">
+          License: {{ (repoItem.license || {}).name || 'Unlicensed' }}
+        </span>
+      </div>
+      <div class="level">
+        <span class="level-item pr-2">
+          Created at: {{ formatDate(repoItem.created_at) }}
+        </span>
+        <span class="level-item pl-2 pr-2">
+          Last update: {{ formatDate(repoItem.updated_at) }}
+        </span>
+        <span class="level-item pl-2 pr-2">
+          Last push: {{ formatDate(repoItem.pushed_at) }}
+        </span>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { RepoActionTypes } from '@/store/modules/repo/types';
 
 const RepoListItemDetails = Vue.extend({
   name: 'RepoListItemDetails',
@@ -45,12 +63,25 @@ const RepoListItemDetails = Vue.extend({
       isDetailVisible: false,
     };
   },
+  methods: {
+    formatDate(isoDate: string) {
+      return new Date(isoDate).toLocaleString();
+    },
+  },
 });
 
 export default RepoListItemDetails;
 </script>
 
 <style scoped lang="scss">
+pre {
+  background-color: lightgrey;
+  color: black;
+  font-family: Fixedsys,Courier,monospace;
+  padding: 1px;
+  border-radius: 2px;
+}
+
 .is-clickable {
   cursor: pointer;
 }

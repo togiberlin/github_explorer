@@ -6,7 +6,7 @@
     </span>
     <span class="pl-2 pr-2">
       <i class="fa fa-code"></i>
-      <a :href="languagesUrl" class="pl-1">{{ repoItem.language }}</a>
+      <a :href="languagesUrl" class="pl-1">{{ (repoItem || {}).language || 'Unknown' }}</a>
     </span>
     <span class="pl-2 pr-2">
       <i class="fa fa-star"></i>

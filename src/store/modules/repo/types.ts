@@ -30,6 +30,8 @@ enum SearchResultOrdering {
   ASC = 'asc',
 }
 
+type Nullable<T> = T | null;
+
 export interface GitHubRepoSearchHttpsParams {
   q: string; // search query
   sorting: SearchResultSorting;
@@ -71,11 +73,11 @@ export interface RepoItem {
   created_at: Date;
   updated_at: Date;
   pushed_at: Date;
-  homepage: string;
+  homepage: Nullable<string>;
   size: number;
   stargazers_count: number;
   watchers_count: number;
-  language: string;
+  language: Nullable<string>;
   forks_count: number;
   open_issues_count: number;
   master_branch: string;
@@ -119,7 +121,7 @@ export interface RepoItem {
   teams_url: string;
   trees_url: string;
   clone_url: string;
-  mirror_url: string;
+  mirror_url: Nullable<string>;
   hooks_url: string;
   svn_url: string;
   forks: number;
@@ -130,16 +132,16 @@ export interface RepoItem {
   has_pages: boolean;
   has_wiki: boolean;
   has_downloads: boolean;
-  archived: boolean;
-  disabled: boolean;
-  license: {
+  archived: Nullable<boolean>;
+  disabled: Nullable<boolean>;
+  license: Nullable<{
     key: string;
     name: string;
     url: string;
     spdx_id: string;
     node_id: string;
     html_url: string;
-  };
+  }>;
 }
 
 export interface RepoSearchResult {

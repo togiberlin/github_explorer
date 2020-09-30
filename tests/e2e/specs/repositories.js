@@ -16,15 +16,15 @@ describe('Repositories feature', () => {
 
   });
 
-  it('has paginated results', () => {
-
-  });
-
   it('shows repository KPIs', () => {
 
   });
 
   it('shows repository details', () => {
+
+  });
+
+  it('has paginated results', () => {
 
   });
 });

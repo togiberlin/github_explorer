@@ -33,7 +33,7 @@
           Is Fork: {{ repoItem.fork }}
         </span>
         <span class="level-item pl-2 pr-2">
-          License: {{ (repoItem.license || {}).name || 'Unlicensed' }}
+          License: {{ ((repoItem.license || {}).name || null) || 'Unlicensed' }}
         </span>
       </div>
       <div class="level">

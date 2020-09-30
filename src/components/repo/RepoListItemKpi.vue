@@ -36,7 +36,7 @@ export default RepoListItemKpiComponent;
 };
 
 .fa-code {
-  color: #4CC3D9;
+  color: #00d1b2;
 }
 
 .fa-star {
@@ -44,10 +44,10 @@ export default RepoListItemKpiComponent;
 };
 
 .fa-eye {
-  color: #F16645;
+  color: #37A7D4;
 }
 
 .fa-share-alt {
-  color: #37A7D4;
+  color: #F16645;
 };
 </style>

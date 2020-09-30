@@ -1,24 +1,3 @@
-declare module '*.vue' {
-  import Vue from 'vue';
-
-  export default Vue;
-}
-
-declare module 'vuejs-paginate' {
-  const Paginate: Vue.Component;
-  export default Paginate;
-}
-
-declare module 'mailto-link' {
-  export default function mailtoLink(
-    options: {
-      to?: string | string[];
-      subject?: string;
-      body?: string;
-    },
-  ): string;
-}
-
 declare module 'vue-loading-spinner' {
   export const RotateSquare: Vue.Component;
   export const RotateSquare2: Vue.Component;

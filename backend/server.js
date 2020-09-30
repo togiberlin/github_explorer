@@ -1,5 +1,5 @@
 /**
- * This backend is for dev purposes, since GitHub rate limits API requests.
+ * This backend persists selected favorites in a simple JSON file.
  */
 const express = require('express');
 const bodyParser = require('body-parser');

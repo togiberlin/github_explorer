@@ -30,7 +30,6 @@ const RepoListItemComponent = Vue.extend({
   methods: {
     ...mapActions([
       FavoriteActionTypes.ADD_FAVORITE_ITEM,
-      RepoActionTypes.TOGGLE_REPO_DETAILS,
     ]),
   },
   components: {

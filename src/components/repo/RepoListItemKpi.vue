@@ -1,20 +1,28 @@
 <template>
   <div>
     <span class="pr-2">
-      <i class="fa fa-user"></i> <a :href="repoItem.owner.url">{{ repoItem.owner.login }}</a>
+      <img :src="repoItem.owner.avatar_url" class="gh-user-avatar">
+      <a :href="repoItem.owner.url" class="pl-1">{{ repoItem.owner.login }}</a>
     </span>
     <span class="pl-2 pr-2">
-      <i class="fa fa-code"></i> {{ repoItem.language }}
+      <i class="fa fa-code"></i>
+      <a :href="languagesUrl" class="pl-1">{{ repoItem.language }}</a>
     </span>
     <span class="pl-2 pr-2">
-      <i class="fa fa-star"></i> {{ repoItem.stargazers_count }}
+      <i class="fa fa-star"></i>
+      <a :href="stargazersUrl" class="pl-1">{{ repoItem.stargazers_count }} Stars</a>
     </span>
     <span class="pl-2 pr-2">
-      <i class="fa fa-eye">
-      </i> {{ repoItem.watchers_count }}
+      <i class="fa fa-eye"></i>
+      <a :href="watchersUrl" class="pl-1">{{ repoItem.watchers_count }} Watchers</a>
+    </span>
+    <span class="pl-2 pr-2">
+      <i class="fa fa-share-alt"></i>
+      <a :href="forksUrl" class="pl-1">{{ repoItem.forks_count }} Forks</a>
     </span>
     <span class="pl-2">
-      <i class="fa fa-share-alt"></i> {{ repoItem.forks_count }}
+      <i class="fa fa-question"></i>
+      <a :href="issuesUrl" class="pl-1">{{ repoItem.open_issues_count }} Issues </a>
     </span>
   </div>
 </template>
@@ -25,18 +33,28 @@ import Vue from 'vue';
 const RepoListItemKpiComponent = Vue.extend({
   name: 'RepoListItemKpi',
   props: ['repoItem'],
+  data() {
+    return {
+      languagesUrl: `${this.repoItem.html_url}/network/dependencies`,
+      stargazersUrl: `${this.repoItem.html_url}/stargazers`,
+      watchersUrl: `${this.repoItem.html_url}/watchers`,
+      forksUrl: `${this.repoItem.html_url}/network/members`,
+      issuesUrl: `${this.repoItem.html_url}/issues`,
+    };
+  },
 });
 
 export default RepoListItemKpiComponent;
 </script>
 
 <style scoped lang="scss">
-.fa-user {
-  color: #6d6c6c;
-};
+.gh-user-avatar {
+  max-width: 13px;
+  max-height: 13px;
+}
 
 .fa-code {
-  color: #00d1b2;
+  color: #003049;
 }
 
 .fa-star {
@@ -48,6 +66,10 @@ export default RepoListItemKpiComponent;
 }
 
 .fa-share-alt {
-  color: #F16645;
+  color: #007f5f;
 };
+
+.fa-question {
+  color: #e63946;
+}
 </style>

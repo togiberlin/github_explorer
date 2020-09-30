@@ -1,14 +1,11 @@
 export enum RepoMutationTypes {
   UPDATE_REPO_ITEMS = 'UPDATE_REPO_ITEMS',
-  UPDATE_REPO_DETAILS = 'UPDATE_REPO_DETAILS',
   UPDATE_REPO_HTTP_ERROR = 'UPDATE_REPO_HTTP_ERROR',
-  TOGGLE_REPO_DETAILS = 'TOGGLE_REPO_DETAILS',
   CHANGE_PAGE = 'CHANGE_PAGE',
 }
 
 export enum RepoActionTypes {
   SEARCH_FOR_REPOS = 'searchForRepos',
-  TOGGLE_REPO_DETAILS = 'toggleRepoDetails',
   CHANGE_PAGE = 'changePage',
 }
 
@@ -33,7 +30,7 @@ enum SearchResultOrdering {
   ASC = 'asc',
 }
 
-export interface SearchParams {
+export interface GitHubRepoSearchHttpsParams {
   q: string; // search query
   sorting: SearchResultSorting;
   order: SearchResultOrdering;
@@ -42,8 +39,6 @@ export interface SearchParams {
 }
 
 export interface RepoItem {
-  isDetailVisible: boolean; // used for toggling repo details
-
   id: number;
   node_id: string;
   name: string;

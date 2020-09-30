@@ -11,14 +11,6 @@ const mutations = {
     state.httpError = payload;
   },
 
-  [RepoMutationTypes.TOGGLE_REPO_DETAILS](state: RepoState, payload: RepoItem) {
-    const repoItemIndex = state.repoItems.findIndex(
-      (repoItem: RepoItem) => repoItem.id === payload.id,
-    );
-
-    state.repoItems[repoItemIndex].isDetailVisible = !payload.isDetailVisible;
-  },
-
   [RepoMutationTypes.CHANGE_PAGE](state: RepoState, payload: number) {
     state.pagination.currentPage = payload;
   },

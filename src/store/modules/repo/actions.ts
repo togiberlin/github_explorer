@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { ActionContext } from 'vuex';
 import {
   RepoActionTypes,
-  RepoItem, RepoMutationTypes, RepoSearchResult, RepoState, SearchParams,
+  RepoItem, RepoMutationTypes, RepoSearchResult, RepoState, GitHubRepoSearchHttpsParams,
 } from './types';
 import gitHubConfig from '../../../../github.config.json';
 
@@ -14,7 +14,7 @@ const headers: AxiosRequestConfig['headers'] = {
 const actions = {
   async [RepoActionTypes.SEARCH_FOR_REPOS](
     context: ActionContext<RepoState, RepoState>,
-    params: SearchParams,
+    params: GitHubRepoSearchHttpsParams,
   ) {
     try {
       const response = await axios.get<RepoSearchResult>(
@@ -26,13 +26,6 @@ const actions = {
       console.error(`Search request towards GitHub has failed: ${e}`);
       context.commit(RepoMutationTypes.UPDATE_REPO_HTTP_ERROR, e);
     }
-  },
-
-  [RepoActionTypes.TOGGLE_REPO_DETAILS](
-    context: ActionContext<RepoState, RepoState>,
-    repoItem: RepoItem,
-  ) {
-    context.commit(RepoMutationTypes.TOGGLE_REPO_DETAILS, repoItem);
   },
 
   [RepoActionTypes.CHANGE_PAGE](

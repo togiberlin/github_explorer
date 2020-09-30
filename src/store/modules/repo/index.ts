@@ -7,7 +7,7 @@ const state: RepoState = {
   repoItems: [],
   pagination: {
     currentPage: 1,
-    itemsPerPage: 5,
+    itemsPerPage: 4,
   },
   httpError: null,
 };

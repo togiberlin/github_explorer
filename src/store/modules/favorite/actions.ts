@@ -3,12 +3,14 @@ import { ActionContext } from 'vuex';
 import { RepoState } from '../repo/types';
 import { FavoriteActionTypes, FavoriteItem, FavoriteMutationTypes } from './types';
 
+const FAVORITE_API_ENDPOINT = '/api/favorite';
+
 const actions = {
   async [FavoriteActionTypes.GET_FAVORITE_ITEMS](
     context: ActionContext<FavoriteItem, RepoState>,
   ) {
     try {
-      const response = await axios.get<FavoriteItem[]>('/api/favorite');
+      const response = await axios.get<FavoriteItem[]>(FAVORITE_API_ENDPOINT);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Fetching favorite items has failed: ${e}`);
@@ -21,7 +23,7 @@ const actions = {
     favoriteItem: FavoriteItem,
   ) {
     try {
-      const response = await axios.post<FavoriteItem>('/api/favorite', favoriteItem);
+      const response = await axios.post<FavoriteItem>(FAVORITE_API_ENDPOINT, favoriteItem);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Adding favorite item has failed: ${e}`);
@@ -34,7 +36,7 @@ const actions = {
     favoriteItem: FavoriteItem,
   ) {
     try {
-      const response = await axios.delete<FavoriteItem>(`/api/favorite/${favoriteItem.id}`);
+      const response = await axios.delete<FavoriteItem>(`${FAVORITE_API_ENDPOINT}/${favoriteItem.id}`);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing favorite item has failed: ${e}`);
@@ -46,7 +48,7 @@ const actions = {
     context: ActionContext<FavoriteItem, RepoState>,
   ) {
     try {
-      const response = await axios.delete<[]>('/api/favorite/');
+      const response = await axios.delete<[]>(FAVORITE_API_ENDPOINT);
       context.commit(FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
       console.error(`Removing all favorite item has failed: ${e}`);

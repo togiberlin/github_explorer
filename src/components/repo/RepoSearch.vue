@@ -60,7 +60,6 @@ const RepoSearchComponent = Vue.extend({
         q: '',
         sort: '',
         order: '',
-        // eslint-disable-next-line
         per_page: 100,
         page: 1,
       },

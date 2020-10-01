@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { ActionContext } from 'vuex';
 import {
   RepoActionTypes,
-  RepoItem, RepoMutationTypes, RepoSearchResult, RepoState, GitHubRepoSearchHttpsParams,
+  RepoMutationTypes, RepoSearchResult, RepoState, GitHubRepoSearchHttpsParams,
 } from './types';
 import gitHubConfig from '../../../../github.config.json';
 

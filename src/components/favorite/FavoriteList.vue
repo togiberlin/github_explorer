@@ -41,7 +41,6 @@ const FavoriteListComponent = Vue.extend({
     ]),
   },
   created() {
-    // @ts-ignore
     this.$store.dispatch(FavoriteActionTypes.GET_FAVORITE_ITEMS);
   },
   methods: {

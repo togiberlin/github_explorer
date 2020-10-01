@@ -160,5 +160,5 @@ export interface RepoState {
     currentPage: number;
     itemsPerPage: number;
   };
-  httpError?: Error | null;
+  httpError: Error | null;
 }

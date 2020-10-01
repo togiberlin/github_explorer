@@ -1,6 +1,6 @@
 import actions from '@/store/modules/repo/actions';
 
-describe('actions', () => {
+describe.skip('actions', () => {
   describe('changePage()', () => {
     it('', () => {
 

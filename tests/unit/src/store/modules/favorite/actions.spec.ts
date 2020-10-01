@@ -1,6 +1,6 @@
 import actions from '@/store/modules/favorite/actions';
 
-describe('actions', () => {
+describe.skip('actions', () => {
   describe('addFavoriteItem()', () => {
     it('', () => {
 

@@ -15,11 +15,12 @@ export enum FavoriteActionTypes {
 export enum FavoriteGetterTypes {
   FAVORITE_ITEMS = 'favoriteItems',
   FAVORITE_QUANTITY = 'favoriteQuantity',
+  HTTP_ERROR = 'httpError',
 }
 
 export interface FavoriteItem extends RepoItem {}
 
 export interface FavoriteState {
   favoriteItems: FavoriteItem[];
-  httpError?: Error | null;
+  httpError: Error | null;
 }

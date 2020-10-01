@@ -18,6 +18,7 @@ export enum RepoGetterTypes {
   CURRENT_PAGE = 'currentPage',
   ITEMS_PER_PAGE = 'itemsPerPage',
   PAGE_COUNT = 'pageCount',
+  EXPANDED_REPO_DETAIL_ID = 'expandedRepoDetailId',
 }
 
 enum SearchResultSorting {

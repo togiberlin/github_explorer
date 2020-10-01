@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import { RepoActionTypes } from '@/store/modules/repo/types';
+import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 
@@ -67,7 +67,7 @@ const RepoListItemDetails = Vue.extend({
   },
   computed: {
     ...mapGetters([
-      'expandedRepoDetailId',
+      RepoGetterTypes.EXPANDED_REPO_DETAIL_ID,
     ]),
   },
   methods: {

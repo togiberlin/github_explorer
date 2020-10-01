@@ -8,7 +8,7 @@
     "serve": "vue-cli-service serve --watch",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
+    "test:e2e": "concurrently \"vue-cli-service test:e2e\" \"npm run server\"",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

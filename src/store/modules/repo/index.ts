@@ -5,6 +5,7 @@ import { RepoState } from './types';
 
 const state: RepoState = {
   repoItems: [],
+  expandedRepoDetailId: null,
   pagination: {
     currentPage: 1,
     itemsPerPage: 4,

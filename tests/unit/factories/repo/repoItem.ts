@@ -1,7 +1,8 @@
-import { FavoriteItem } from "@/store/modules/favorite/types";
+import { FavoriteItem } from '@/store/modules/favorite/types';
 import { RepoItem } from '@/store/modules/repo/types';
 
 import Chance from 'chance';
+
 const chance = new Chance();
 
 export default function createMockRepoItem(): RepoItem | FavoriteItem {

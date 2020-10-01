@@ -34,6 +34,13 @@ const actions = {
   ) {
     context.commit(RepoMutationTypes.CHANGE_PAGE, desiredPage);
   },
+
+  [RepoActionTypes.TOGGLE_REPO_DETAILS](
+    context: ActionContext<RepoState, RepoState>,
+    repoItemId: number,
+  ) {
+    context.commit(RepoMutationTypes.TOGGLE_REPO_DETAILS, repoItemId);
+  },
 };
 
 export default actions;

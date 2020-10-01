@@ -12,6 +12,7 @@ const getters = {
   currentPage: (state: RepoState) => state.pagination.currentPage,
   itemsPerPage: (state: RepoState) => state.pagination.itemsPerPage,
   pageCount: (state: RepoState) => state.repoItems.length / state.pagination.itemsPerPage,
+  expandedRepoDetailId: (state: RepoState) => state.expandedRepoDetailId,
 };
 
 export default getters;

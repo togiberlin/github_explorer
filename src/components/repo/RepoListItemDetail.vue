@@ -1,28 +1,29 @@
 <template>
   <div>
-    <div class="level-item pt-2 pb-2">
-      <div @click="isDetailVisible = !isDetailVisible">
+    <div class="level-item pt-1 pb-1">
+      <div @click="toggleRepoDetails(repoItem.id)">
         <i :class="[
-          isDetailVisible ?
+          expandedRepoDetailId === repoItem.id ?
             'fa fa-chevron-up is-clickable is-gray' :
             'fa fa-chevron-down is-clickable is-gray',
         ]" aria-hidden="true"></i>
-        <span v-text="toggleText[isDetailVisible * 1]" class="is-clickable is-gray pl-2"></span>
+        <span v-text="toggleText[(expandedRepoDetailId === repoItem.id) * 1]"
+          class="is-clickable is-gray pl-2"></span>
       </div>
     </div>
-    <div v-if="isDetailVisible">
-      <div class="level">
+    <div v-if="expandedRepoDetailId === repoItem.id">
+      <div class="level mb-1">
         <span class="level-item">
           SSH Clone URL: <pre class="ml-2 pl-1 pr-1">{{ repoItem.ssh_url }}</pre>
         </span>
 
       </div>
-      <div class="level">
+      <div class="level mb-1">
         <span class="level-item">
           HTTPS Clone URL: <pre class="ml-2 pl-1 pr-2">{{ repoItem.clone_url }}</pre>
         </span>
       </div>
-      <div class="level">
+      <div class="level mb-1">
         <span class="level-item pr-2">
           Size: {{ repoItem.size / 1000 }} MByte
         </span>
@@ -36,7 +37,7 @@
           License: {{ ((repoItem.license || {}).name || null) || 'Unlicensed' }}
         </span>
       </div>
-      <div class="level">
+      <div class="level mb-1">
         <span class="level-item pr-2">
           Created at: {{ formatDate(repoItem.created_at) }}
         </span>
@@ -52,7 +53,9 @@
 </template>
 
 <script lang="ts">
+import { RepoActionTypes } from '@/store/modules/repo/types';
 import Vue from 'vue';
+import { mapActions, mapGetters } from 'vuex';
 
 const RepoListItemDetails = Vue.extend({
   name: 'RepoListItemDetail',
@@ -60,13 +63,20 @@ const RepoListItemDetails = Vue.extend({
   data() {
     return {
       toggleText: ['Show Details', 'Hide Details'],
-      isDetailVisible: false,
     };
+  },
+  computed: {
+    ...mapGetters([
+      'expandedRepoDetailId',
+    ]),
   },
   methods: {
     formatDate(isoDate: string) {
       return new Date(isoDate).toLocaleString();
     },
+    ...mapActions([
+      RepoActionTypes.TOGGLE_REPO_DETAILS,
+    ]),
   },
 });
 

@@ -2,11 +2,13 @@ export enum RepoMutationTypes {
   UPDATE_REPO_ITEMS = 'UPDATE_REPO_ITEMS',
   UPDATE_REPO_HTTP_ERROR = 'UPDATE_REPO_HTTP_ERROR',
   CHANGE_PAGE = 'CHANGE_PAGE',
+  TOGGLE_REPO_DETAILS = 'TOGGLE_REPO_DETAILS',
 }
 
 export enum RepoActionTypes {
   SEARCH_FOR_REPOS = 'searchForRepos',
   CHANGE_PAGE = 'changePage',
+  TOGGLE_REPO_DETAILS = 'toggleRepoDetails',
 }
 
 export enum RepoGetterTypes {
@@ -152,6 +154,7 @@ export interface RepoSearchResult {
 
 export interface RepoState {
   repoItems: RepoItem[];
+  expandedRepoDetailId: number | null;
   pagination: {
     currentPage: number;
     itemsPerPage: number;

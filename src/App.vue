@@ -46,9 +46,17 @@ html, body {
   display: none;
 }
 
-@media screen and (min-width: 769px) {
+@media screen
+  and (min-width: 769px) {
   html, body {
     height: 100%;
+  }
+}
+
+@media screen
+  and (max-height: 768px) {
+  html, body {
+    height: 120%;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit="submitSearchQuery">
-      <div class="field">
+      <div class="field mb-1">
         <div class="control has-icons-left has-icons-right">
           <input
             v-model="searchParams.q"
@@ -28,7 +28,7 @@
           </select>
         </div>
       </div>
-      <div class="field level-item pt-2">
+      <div class="field level-item pt-1">
         <div class="select control">
           <select :disabled="!searchParams.sort" v-model="searchParams.order">
             <option disabled value="">Ordering</option>

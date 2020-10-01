@@ -2,10 +2,11 @@ import { FavoriteItem, FavoriteState } from '@/store/modules/favorite/types';
 import { RepoItem, RepoState } from '@/store/modules/repo/types';
 
 export default function createMockRepoState(
-  repoItems: RepoItem[]
+  repoItems: RepoItem[],
 ): RepoState {
   return {
     repoItems: [...repoItems],
+    expandedRepoDetailId: null,
     pagination: {
       currentPage: 1,
       itemsPerPage: 4,

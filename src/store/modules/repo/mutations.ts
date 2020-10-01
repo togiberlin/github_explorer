@@ -14,6 +14,15 @@ const mutations = {
   [RepoMutationTypes.CHANGE_PAGE](state: RepoState, payload: number) {
     state.pagination.currentPage = payload;
   },
+
+  [RepoMutationTypes.TOGGLE_REPO_DETAILS](state: RepoState, payload: number) {
+    if (payload === state.expandedRepoDetailId) {
+      state.expandedRepoDetailId = null;
+      return;
+    }
+
+    state.expandedRepoDetailId = payload;
+  },
 };
 
 export default mutations;

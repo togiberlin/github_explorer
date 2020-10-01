@@ -60,7 +60,7 @@ describe('Repositories feature', () => {
     cy.get('form')
       .submit();
 
-    cy.scrollTo(0, 500)
+    cy.scrollTo(0, 500);
 
     cy.get('li')
       .contains('2')

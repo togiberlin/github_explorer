@@ -5,12 +5,12 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run serve\"",
     "server": "node backend/server",
-    "serve": "vue-cli-service serve --watch",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "concurrently \"vue-cli-service test:e2e\" \"npm run server\"",
-    "test:e2e:headless": "concurrently \"vue-cli-service test:e2e --headless\" \"npm run server\"",
-    "lint": "vue-cli-service lint"
+    "serve": "npx vue-cli-service serve --watch",
+    "build": "npx vue-cli-service build",
+    "test:unit": "npx vue-cli-service test:unit",
+    "test:e2e": "concurrently \"npx vue-cli-service test:e2e\" \"npm run server\"",
+    "test:e2e:headless": "concurrently \"npx vue-cli-service test:e2e --headless\" \"npm run server\"",
+    "lint": "npx vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.20.0",

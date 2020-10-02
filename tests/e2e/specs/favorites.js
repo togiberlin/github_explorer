@@ -5,7 +5,9 @@
 
 describe('Favorites feature', () => {
   beforeEach(() => {
+    cy.route('/').as('root')
     cy.visit('/');
+    cy.wait('@root').its('status').should('eq', 200);
   });
 
   it('loads the favorite feature and displays an empty list', () => {

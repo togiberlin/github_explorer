@@ -14,6 +14,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          headless: true
+          record: false
           start: npm run start
           wait-on: http://localhost:8080/
           config-file: cypress.json

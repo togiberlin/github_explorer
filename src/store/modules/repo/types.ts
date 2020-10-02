@@ -21,14 +21,14 @@ export enum RepoGetterTypes {
   EXPANDED_REPO_DETAIL_ID = 'expandedRepoDetailId',
 }
 
-enum SearchResultSorting {
+export enum SearchResultSorting {
   STARS = 'stars',
   FORKS = 'forks',
   HELP_WANTED_ISSUES = 'help-wanted-issues',
   UPDATED = 'updated',
 }
 
-enum SearchResultOrdering {
+export enum SearchResultOrdering {
   DESC = 'desc',
   ASC = 'asc',
 }

@@ -11,13 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Creates a production build of the app
-        run: npm run build
+      - run: npm install -g @vue/cli
+      - run: npm run build
   unit-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Runs Jest unit-tests
-        run: npm run test:unit
+      - run: npm install -g @vue/cli
+      - run: npm run test:unit
   e2e-test:
     runs-on: ubuntu-latest
     steps:
@@ -29,4 +31,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Runs ESLint with the AirBnB styleguide
-        run: npm run lint
+      - run: npm install -g @vue/cli
+      - run: npm run lint

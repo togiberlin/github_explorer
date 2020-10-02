@@ -4,11 +4,11 @@ import {
   RepoActionTypes,
   RepoMutationTypes, RepoSearchResult, RepoState, GitHubRepoSearchHttpsParams,
 } from './types';
-import gitHubConfig from '../../../../github.config.json';
+import secrets from '../../../../secrets.json';
 
 const headers: AxiosRequestConfig['headers'] = {
   Accept: 'application/vnd.github.v3+json',
-  Authorization: `token ${gitHubConfig.oAuth2Token}`,
+  Authorization: `token ${secrets.gitHub.oAuth2Token}`,
 };
 
 const actions = {

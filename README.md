@@ -5,8 +5,7 @@ This project allows you to browse GitHub and bookmarks repos and share them via 
 ## Before You Start
 Before you start, it is highly recommended to set up a personal
 [GitHub OAuth2 access token](https://docs.github.com/en/free-pro-team@latest/rest/overview/other-authentication-methods#basic-authentication),
-so that GitHub does not [rate limit](https://docs.github.com/en/free-pro-team@latest/rest/reference/rate-limit) HTTPS requests. Copy and paste your GitHub access token to `./config.json`.
-For an example template, see `./config.example.json`. Without access token, the app might not work as expected!
+so that GitHub does not [rate limit](https://docs.github.com/en/free-pro-team@latest/rest/reference/rate-limit) HTTPS requests. Copy and paste your GitHub access token to `./secrets.json`. Without access token, requests might fail and the app might not work as expected!
 
 ## Detailed Information
 For more background infos about this project, please check the [wiki](https://github.com/togiberlin/github_explorer/wiki).
@@ -33,8 +32,8 @@ npm run test:unit         # runs Jest
 
 ### Run your end-to-end tests
 ```bash
-npm run test:e2e          # starts Cypress.io and backend server
-npm run test:e2e:headless # command line only
+npm run test:e2e          # runs E2E Cypress tests in the GUI
+npm run test:e2e:headless # runs E2E tests in command line
 ```
 
 ### Lints and fixes files

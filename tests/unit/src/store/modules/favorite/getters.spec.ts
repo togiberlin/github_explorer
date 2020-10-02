@@ -1,22 +1,23 @@
 import getters from '@/store/modules/favorite/getters';
+import { FavoriteGetterTypes } from '@/store/modules/favorite/types';
+import createMockFavoriteItem from '../../../../factories/favorite/favoriteItem';
 import createMockFavoriteState from '../../../../factories/favorite/favoriteState';
-import createMockRepoItem from '../../../../factories/repo/repoItem';
 
 describe('getters', () => {
-  const mockFavoriteItem = createMockRepoItem();
+  const mockFavoriteItem = createMockFavoriteItem();
   const mockFavoriteState = createMockFavoriteState([mockFavoriteItem]);
 
-  it('returns favoriteItems prop', () => {
+  it(`returns ${FavoriteGetterTypes.FAVORITE_ITEMS} prop`, () => {
     const subject = getters.favoriteItems(mockFavoriteState);
     expect(subject).toEqual([mockFavoriteItem]);
   });
 
-  it('returns favoriteQuantity prop', () => {
+  it(`returns ${FavoriteGetterTypes.FAVORITE_QUANTITY} prop`, () => {
     const subject = getters.favoriteQuantity(mockFavoriteState);
     expect(subject).toEqual(mockFavoriteState.favoriteItems.length);
   });
 
-  it('returns httpError prop, which is initially null', () => {
+  it(`returns ${FavoriteGetterTypes.HTTP_ERROR} prop, which is initially null`, () => {
     const subject = getters.httpError(mockFavoriteState);
     expect(subject).toBeNull();
   });

@@ -18,7 +18,7 @@ export enum FavoriteGetterTypes {
   HTTP_ERROR = 'httpError',
 }
 
-export interface FavoriteItem extends RepoItem {}
+export type FavoriteItem = RepoItem
 
 export interface FavoriteState {
   favoriteItems: FavoriteItem[];

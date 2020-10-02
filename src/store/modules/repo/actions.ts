@@ -13,7 +13,7 @@ const headers: AxiosRequestConfig['headers'] = {
 
 const actions = {
   async [RepoActionTypes.SEARCH_FOR_REPOS](
-    context: ActionContext<RepoState, RepoState>,
+    { commit }: ActionContext<RepoState, RepoState>,
     params: GitHubRepoSearchHttpsParams,
   ) {
     try {
@@ -21,25 +21,25 @@ const actions = {
         'https://api.github.com/search/repositories', { headers, params },
       );
 
-      context.commit(RepoMutationTypes.UPDATE_REPO_ITEMS, response.data.items);
+      commit(RepoMutationTypes.UPDATE_REPO_ITEMS, response.data.items);
     } catch (e) {
       console.error(`Search request towards GitHub has failed: ${e}`);
-      context.commit(RepoMutationTypes.UPDATE_REPO_HTTP_ERROR, e);
+      commit(RepoMutationTypes.UPDATE_REPO_HTTP_ERROR, e);
     }
   },
 
   [RepoActionTypes.CHANGE_PAGE](
-    context: ActionContext<RepoState, RepoState>,
+    { commit }: ActionContext<RepoState, RepoState>,
     desiredPage: number,
   ) {
-    context.commit(RepoMutationTypes.CHANGE_PAGE, desiredPage);
+    commit(RepoMutationTypes.CHANGE_PAGE, desiredPage);
   },
 
   [RepoActionTypes.TOGGLE_REPO_DETAILS](
-    context: ActionContext<RepoState, RepoState>,
+    { commit }: ActionContext<RepoState, RepoState>,
     repoItemId: number,
   ) {
-    context.commit(RepoMutationTypes.TOGGLE_REPO_DETAILS, repoItemId);
+    commit(RepoMutationTypes.TOGGLE_REPO_DETAILS, repoItemId);
   },
 };
 

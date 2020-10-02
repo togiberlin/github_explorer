@@ -1,4 +1,3 @@
-import { FavoriteItem, FavoriteState } from '@/store/modules/favorite/types';
 import { RepoItem, RepoState } from '@/store/modules/repo/types';
 
 export default function createMockRepoState(

@@ -1,4 +1,4 @@
-# GitHub Explorer
+# GitHub Explorer [![Actions Status](https://github.com/togiberlin/github_explorer/workflows/CI/badge.svg)](https://github.com/togiberlin/github_explorer/actions)
 I spent couple evenings learning VueJS and decided to put my skills to a test.
 This project allows you to browse GitHub and bookmarks repos and share them via e-mail.
 

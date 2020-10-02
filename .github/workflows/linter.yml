@@ -6,42 +6,8 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Creates a production build of the app
-        run: |
-          sudo npm install -g @vue/cli
-          rm -rf node_modules
-          npm install
-          npm run build
-  unit-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Runs Jest unit-tests
-        run: |
-           sudo npm install -g @vue/cli
-           rm -rf node_modules
-           npm install
-           npm run test:unit
-  e2e-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
-        with:
-          start: npm run start
-          wait-on: http://localhost:8080/
-          config_file: cypress.json
-          spec: "tests/e2e/**/*"
   linter:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2

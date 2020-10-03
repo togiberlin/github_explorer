@@ -1,13 +1,6 @@
-/**
- * These E2E tests will only pass, if the backend server is running!
- * Execute `npm run server` to start the ExpressJS backend.
- */
-
 describe('Favorites feature', () => {
   beforeEach(() => {
-    cy.route('/').as('root')
     cy.visit('/');
-    cy.wait('@root').its('status').should('eq', 200);
   });
 
   it('loads the favorite feature and displays an empty list', () => {

@@ -17,18 +17,19 @@
 </template>
 
 <script lang="ts">
-import { FavoriteActionTypes } from '@/store/modules/favorite/types';
+import { FavoriteActions } from '@/store/modules/favorite/types';
 import Vue from 'vue';
 import { mapActions } from 'vuex';
 import RepoListItemKpi from './RepoListItemKpi.vue';
 import RepoListItemDetail from './RepoListItemDetail.vue';
+import { RepoComponents, RepoProps } from './types';
 
 const RepoListItemComponent = Vue.extend({
-  name: 'RepoListItem',
-  props: ['repoItem'],
+  name: RepoComponents.REPO_LIST_ITEM,
+  props: [RepoProps.REPO_ITEM],
   methods: {
     ...mapActions([
-      FavoriteActionTypes.ADD_FAVORITE_ITEM,
+      FavoriteActions.ADD_FAVORITE_ITEM,
     ]),
   },
   components: {

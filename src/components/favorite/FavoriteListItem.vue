@@ -18,21 +18,22 @@
 </template>
 
 <script lang="ts">
-import { FavoriteActionTypes, FavoriteGetterTypes } from '@/store/modules/favorite/types';
 import Vue from 'vue';
+import { FavoriteActions, FavoriteGetters } from '@/store/modules/favorite/types';
 import { mapActions, mapGetters } from 'vuex';
+import { FavoriteComponents, FavoriteProps } from './types';
 
 const FavoriteListItemComponent = Vue.extend({
-  name: 'FavoriteListItem',
-  props: ['favoriteItem'],
+  name: FavoriteComponents.FAVORITE_LIST_ITEM,
+  props: [FavoriteProps.FAVORITE_ITEM],
   computed: {
     ...mapGetters([
-      FavoriteGetterTypes.FAVORITE_ITEMS,
+      FavoriteGetters.FAVORITE_ITEMS,
     ]),
   },
   methods: {
     ...mapActions([
-      FavoriteActionTypes.REMOVE_FAVORITE_ITEM,
+      FavoriteActions.REMOVE_FAVORITE_ITEM,
     ]),
   },
 });

@@ -15,18 +15,19 @@
 </template>
 
 <script lang="ts">
-import { RepoGetterTypes } from '@/store/modules/repo/types';
+import { RepoGetters } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import RepoSearch from './RepoSearch.vue';
 import RepoListItem from './RepoListItem.vue';
 import RepoPagination from './RepoPagination.vue';
+import { RepoComponents } from './types';
 
 const RepoListComponent = Vue.extend({
-  name: 'RepoList',
+  name: RepoComponents.REPO_LIST,
   computed: {
     ...mapGetters([
-      RepoGetterTypes.REPO_ITEMS_FOR_CURRENT_PAGE,
+      RepoGetters.REPO_ITEMS_FOR_CURRENT_PAGE,
     ]),
   },
   components: {

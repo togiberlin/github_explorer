@@ -20,18 +20,19 @@
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import Paginate from 'vuejs-paginate';
-import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
+import { RepoActions, RepoGetters } from '@/store/modules/repo/types';
+import { RepoComponents } from './types';
 
 const RepoPaginationComponent = Vue.extend({
-  name: 'RepoPagination',
+  name: RepoComponents.REPO_PAGINATION,
   computed: {
     ...mapGetters([
-      RepoGetterTypes.PAGE_COUNT,
+      RepoGetters.PAGE_COUNT,
     ]),
   },
   methods: {
     onClickPagination(desiredPage: number) {
-      this.$store.dispatch(RepoActionTypes.CHANGE_PAGE, desiredPage);
+      this.$store.dispatch(RepoActions.CHANGE_PAGE, desiredPage);
     },
   },
   components: {

@@ -11,10 +11,11 @@
 import Vue from 'vue';
 import getMailtoLink from 'mailto-link';
 import { FavoriteItem } from '@/store/modules/favorite/types';
+import { FavoriteComponents, FavoriteProps } from './types';
 
 const FavoriteShareEmailComponent = Vue.extend({
-  name: 'FavoriteShareEmailComponent',
-  props: ['favoriteItems'],
+  name: FavoriteComponents.FAVORITE_SHARE_EMAIL,
+  props: [FavoriteProps.FAVORITE_ITEMS],
   computed: {
     mailtoLink() {
       const favoriteRepos: string = this.favoriteItems.map(

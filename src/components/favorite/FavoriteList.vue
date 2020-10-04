@@ -26,26 +26,27 @@
 </template>
 
 <script lang="ts">
-import { FavoriteActionTypes, FavoriteGetterTypes } from '@/store/modules/favorite/types';
+import { FavoriteActions, FavoriteGetters } from '@/store/modules/favorite/types';
 import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
+import { FavoriteComponents } from './types';
 import FavoriteListItem from './FavoriteListItem.vue';
 import FavoriteShareEmail from './FavoriteShareEmail.vue';
 
 const FavoriteListComponent = Vue.extend({
-  name: 'FavoriteList',
+  name: FavoriteComponents.FAVORITE_LIST,
   computed: {
     ...mapGetters([
-      FavoriteGetterTypes.FAVORITE_ITEMS,
-      FavoriteGetterTypes.FAVORITE_QUANTITY,
+      FavoriteGetters.FAVORITE_ITEMS,
+      FavoriteGetters.FAVORITE_QUANTITY,
     ]),
   },
   created() {
-    this.$store.dispatch(FavoriteActionTypes.GET_FAVORITE_ITEMS);
+    this.$store.dispatch(FavoriteActions.GET_FAVORITE_ITEMS);
   },
   methods: {
     ...mapActions([
-      FavoriteActionTypes.REMOVE_ALL_FAVORITE_ITEMS,
+      FavoriteActions.REMOVE_ALL_FAVORITE_ITEMS,
     ]),
   },
   components: {

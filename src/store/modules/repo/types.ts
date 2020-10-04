@@ -1,17 +1,17 @@
-export enum RepoMutationTypes {
+export enum RepoMutations {
   UPDATE_REPO_ITEMS = 'UPDATE_REPO_ITEMS',
   UPDATE_REPO_HTTP_ERROR = 'UPDATE_REPO_HTTP_ERROR',
   CHANGE_PAGE = 'CHANGE_PAGE',
   TOGGLE_REPO_DETAILS = 'TOGGLE_REPO_DETAILS',
 }
 
-export enum RepoActionTypes {
+export enum RepoActions {
   SEARCH_FOR_REPOS = 'searchForRepos',
   CHANGE_PAGE = 'changePage',
   TOGGLE_REPO_DETAILS = 'toggleRepoDetails',
 }
 
-export enum RepoGetterTypes {
+export enum RepoGetters {
   REPO_ITEMS = 'repoItems',
   REPO_ITEMS_FOR_CURRENT_PAGE = 'repoItemsForCurrentPage',
   HTTP_ERROR = 'httpError',

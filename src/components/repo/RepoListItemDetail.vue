@@ -53,13 +53,14 @@
 </template>
 
 <script lang="ts">
-import { RepoActionTypes, RepoGetterTypes } from '@/store/modules/repo/types';
+import { RepoActions, RepoGetters } from '@/store/modules/repo/types';
 import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
+import { RepoComponents, RepoProps } from './types';
 
 const RepoListItemDetails = Vue.extend({
-  name: 'RepoListItemDetail',
-  props: ['repoItem'],
+  name: RepoComponents.REPO_LIST_ITEM_DETAIL,
+  props: [RepoProps.REPO_ITEM],
   data() {
     return {
       toggleText: ['Show Details', 'Hide Details'],
@@ -67,7 +68,7 @@ const RepoListItemDetails = Vue.extend({
   },
   computed: {
     ...mapGetters([
-      RepoGetterTypes.EXPANDED_REPO_DETAIL_ID,
+      RepoGetters.EXPANDED_REPO_DETAIL_ID,
     ]),
   },
   methods: {
@@ -75,7 +76,7 @@ const RepoListItemDetails = Vue.extend({
       return new Date(isoDate).toLocaleString();
     },
     ...mapActions([
-      RepoActionTypes.TOGGLE_REPO_DETAILS,
+      RepoActions.TOGGLE_REPO_DETAILS,
     ]),
   },
 });

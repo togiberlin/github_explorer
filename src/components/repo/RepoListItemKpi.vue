@@ -29,10 +29,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { RepoComponents, RepoProps } from './types';
 
 const RepoListItemKpiComponent = Vue.extend({
-  name: 'RepoListItemKpi',
-  props: ['repoItem'],
+  name: RepoComponents.REPO_LIST_ITEM_KPI,
+  props: [RepoProps.REPO_ITEM],
   data() {
     return {
       languagesUrl: `${this.repoItem.html_url}/network/dependencies`,

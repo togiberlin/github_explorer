@@ -49,10 +49,11 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Diamond } from 'vue-loading-spinner';
-import { RepoActionTypes } from '@/store/modules/repo/types';
+import { RepoActions } from '@/store/modules/repo/types';
+import { RepoComponents } from './types';
 
 const RepoSearchComponent = Vue.extend({
-  name: 'RepoSearch',
+  name: RepoComponents.REPO_SEARCH,
   data() {
     return {
       isFetchingData: false,
@@ -70,7 +71,7 @@ const RepoSearchComponent = Vue.extend({
       this.isFetchingData = true;
       event.preventDefault();
 
-      this.$store.dispatch(RepoActionTypes.SEARCH_FOR_REPOS, this.searchParams).then(() => {
+      this.$store.dispatch(RepoActions.SEARCH_FOR_REPOS, this.searchParams).then(() => {
         this.isFetchingData = false;
       });
     },

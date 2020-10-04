@@ -1,6 +1,6 @@
 import actions from '@/store/modules/repo/actions';
 import axios from 'axios';
-import { RepoActionTypes, RepoMutationTypes, RepoState } from '@/store/modules/repo/types';
+import { RepoActions, RepoMutations, RepoState } from '@/store/modules/repo/types';
 import { ActionContext } from 'vuex';
 import flushPromises from 'flush-promises';
 import createMockRepoItem from '../../../../factories/repo/repoItem';
@@ -18,7 +18,7 @@ describe('actions', () => {
     } as unknown as ActionContext<RepoState, RepoState>;
   });
 
-  describe(`${RepoActionTypes.CHANGE_PAGE}`, () => {
+  describe(`${RepoActions.CHANGE_PAGE}`, () => {
     it('commits the desired page to the store', async () => {
       expect.assertions(1);
       const desiredPage = 42;
@@ -26,11 +26,11 @@ describe('actions', () => {
       actions.changePage(context, desiredPage);
       await flushPromises();
 
-      expect(context.commit).toHaveBeenCalledWith(RepoMutationTypes.CHANGE_PAGE, desiredPage);
+      expect(context.commit).toHaveBeenCalledWith(RepoMutations.CHANGE_PAGE, desiredPage);
     });
   });
 
-  describe(`${RepoActionTypes.SEARCH_FOR_REPOS}`, () => {
+  describe(`${RepoActions.SEARCH_FOR_REPOS}`, () => {
     it('calls the GH API and commits the results', async () => {
       expect.assertions(1);
       const searchParams = createMockSearchParams();
@@ -41,12 +41,12 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        RepoMutationTypes.UPDATE_REPO_ITEMS, mockResponse.data.items,
+        RepoMutations.UPDATE_REPO_ITEMS, mockResponse.data.items,
       );
     });
   });
 
-  describe(`${RepoActionTypes.TOGGLE_REPO_DETAILS}`, () => {
+  describe(`${RepoActions.TOGGLE_REPO_DETAILS}`, () => {
     it('commits the repoItem.id to the store', async () => {
       expect.assertions(1);
       const repoItemId = 123454321;
@@ -55,7 +55,7 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        RepoMutationTypes.TOGGLE_REPO_DETAILS, repoItemId,
+        RepoMutations.TOGGLE_REPO_DETAILS, repoItemId,
       );
     });
   });

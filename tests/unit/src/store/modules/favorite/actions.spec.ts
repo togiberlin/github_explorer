@@ -2,8 +2,8 @@ import axios from 'axios';
 import actions from '@/store/modules/favorite/actions';
 import flushPromises from 'flush-promises';
 import {
-  FavoriteActionTypes,
-  FavoriteMutationTypes,
+  FavoriteActions,
+  FavoriteMutations,
   FavoriteState,
 } from '@/store/modules/favorite/types';
 import { ActionContext } from 'vuex';
@@ -22,7 +22,7 @@ describe('actions', () => {
     } as unknown as ActionContext<FavoriteState, RepoState>;
   });
 
-  describe(`${FavoriteActionTypes.GET_FAVORITE_ITEMS}`, () => {
+  describe(`${FavoriteActions.GET_FAVORITE_ITEMS}`, () => {
     it('commits the result into the store', async () => {
       expect.assertions(1);
       const mockFavoriteItem = createMockFavoriteItem();
@@ -33,7 +33,7 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, mockResponse.data,
+        FavoriteMutations.UPDATE_FAVORITE_ITEMS, mockResponse.data,
       );
     });
 
@@ -46,12 +46,12 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, mockError,
+        FavoriteMutations.UPDATE_FAVORITE_HTTP_ERROR, mockError,
       );
     });
   });
 
-  describe(`${FavoriteActionTypes.ADD_FAVORITE_ITEM}`, () => {
+  describe(`${FavoriteActions.ADD_FAVORITE_ITEM}`, () => {
     it('commits the result into the store', async () => {
       expect.assertions(1);
       const mockFavoriteItem = createMockFavoriteItem();
@@ -62,7 +62,7 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, mockResponse.data,
+        FavoriteMutations.UPDATE_FAVORITE_ITEMS, mockResponse.data,
       );
     });
 
@@ -76,12 +76,12 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, mockError,
+        FavoriteMutations.UPDATE_FAVORITE_HTTP_ERROR, mockError,
       );
     });
   });
 
-  describe(`${FavoriteActionTypes.REMOVE_FAVORITE_ITEM}`, () => {
+  describe(`${FavoriteActions.REMOVE_FAVORITE_ITEM}`, () => {
     it('commits the result into the store', async () => {
       expect.assertions(1);
       const mockFavoriteItem = createMockFavoriteItem();
@@ -92,7 +92,7 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, mockResponse.data,
+        FavoriteMutations.UPDATE_FAVORITE_ITEMS, mockResponse.data,
       );
     });
 
@@ -106,12 +106,12 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, mockError,
+        FavoriteMutations.UPDATE_FAVORITE_HTTP_ERROR, mockError,
       );
     });
   });
 
-  describe(`${FavoriteActionTypes.REMOVE_ALL_FAVORITE_ITEMS}`, () => {
+  describe(`${FavoriteActions.REMOVE_ALL_FAVORITE_ITEMS}`, () => {
     it('commits the result into the store', async () => {
       expect.assertions(1);
       const mockResponse = { data: [] };
@@ -121,7 +121,7 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_ITEMS, mockResponse.data,
+        FavoriteMutations.UPDATE_FAVORITE_ITEMS, mockResponse.data,
       );
     });
 
@@ -134,7 +134,7 @@ describe('actions', () => {
       await flushPromises();
 
       expect(context.commit).toHaveBeenCalledWith(
-        FavoriteMutationTypes.UPDATE_FAVORITE_HTTP_ERROR, mockError,
+        FavoriteMutations.UPDATE_FAVORITE_HTTP_ERROR, mockError,
       );
     });
   });

@@ -58,7 +58,7 @@ import Vue from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 import { RepoComponents, RepoProps } from './types';
 
-const RepoListItemDetails = Vue.extend({
+const RepoListItemDetailComponent = Vue.extend({
   name: RepoComponents.REPO_LIST_ITEM_DETAIL,
   props: [RepoProps.REPO_ITEM],
   data() {
@@ -81,7 +81,7 @@ const RepoListItemDetails = Vue.extend({
   },
 });
 
-export default RepoListItemDetails;
+export default RepoListItemDetailComponent;
 </script>
 
 <style scoped lang="scss">

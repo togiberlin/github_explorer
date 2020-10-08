@@ -33,7 +33,7 @@ export enum SearchResultOrdering {
   ASC = 'asc',
 }
 
-type Nullable<T> = T | null;
+export type Nullable<T> = T | null;
 
 export interface GitHubRepoSearchHttpsParams {
   q: string; // search query
@@ -155,10 +155,10 @@ export interface RepoSearchResult {
 
 export interface RepoState {
   repoItems: RepoItem[];
-  expandedRepoDetailId: number | null;
+  expandedRepoDetailId: Nullable<number>;
   pagination: {
     currentPage: number;
     itemsPerPage: number;
   };
-  httpError: Error | null;
+  httpError: Nullable<Error>;
 }

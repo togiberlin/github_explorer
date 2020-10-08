@@ -1,7 +1,8 @@
 {
   "name": "github_explorer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run serve\"",
     "server": "node backend/server",

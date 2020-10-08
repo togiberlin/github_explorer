@@ -2,7 +2,7 @@
   <div>
     <span class="pr-2">
       <img :src="repoItem.owner.avatar_url" class="gh-user-avatar">
-      <a :href="repoItem.owner.url" class="pl-1">{{ repoItem.owner.login }}</a>
+      <a :href="repoItem.owner.html_url" class="pl-1">{{ repoItem.owner.login }}</a>
     </span>
     <span class="pl-2 pr-2">
       <i class="fa fa-code"></i>

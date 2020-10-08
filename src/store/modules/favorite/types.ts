@@ -1,4 +1,4 @@
-import { RepoItem } from '../repo/types';
+import { Nullable, RepoItem } from '../repo/types';
 
 export enum FavoriteMutations {
   UPDATE_FAVORITE_ITEMS = 'UPDATE_FAVORITE_ITEMS',
@@ -22,5 +22,5 @@ export type FavoriteItem = RepoItem;
 
 export interface FavoriteState {
   favoriteItems: FavoriteItem[];
-  httpError: Error | null;
+  httpError: Nullable<Error>;
 }

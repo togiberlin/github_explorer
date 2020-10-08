@@ -53,7 +53,7 @@ const actions = {
       const response = await axios.delete<[]>(FAVORITE_API_ENDPOINT);
       commit(FavoriteMutations.UPDATE_FAVORITE_ITEMS, response.data);
     } catch (e) {
-      console.error(`Removing all favorite item has failed: ${e}`);
+      console.error(`Removing all favorite items has failed: ${e}`);
       commit(FavoriteMutations.UPDATE_FAVORITE_HTTP_ERROR, e);
     }
   },

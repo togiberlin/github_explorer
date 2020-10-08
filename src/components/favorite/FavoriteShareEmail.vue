@@ -3,7 +3,7 @@
     :onclick="mailtoLink"
     :disabled="!favoriteItems.length"
     class="button is-primary">
-    Share via e-mail<span class="has-text-weight-bold"></span>
+    Share via E-Mail<span class="has-text-weight-bold"></span>
   </button>
 </template>
 

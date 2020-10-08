@@ -1,13 +1,13 @@
 import { shallowMount } from '@vue/test-utils';
 import FavoriteShareEmail from '@/components/favorite/FavoriteShareEmail.vue';
-import { FavoriteComponents } from '@/components/favorite/types';
+import { FavoriteComponents, FavoriteProps } from '@/components/favorite/types';
 import createMockFavoriteItem from '../../../factories/favorite/favoriteItem';
 
 describe(`${FavoriteComponents.FAVORITE_SHARE_EMAIL}`, () => {
   it('is not clickable, if there are no bookmarked favorites', () => {
     const wrapper = shallowMount(FavoriteShareEmail, {
       propsData: {
-        favoriteItems: [],
+        [FavoriteProps.FAVORITE_ITEMS]: [],
       },
     });
 
@@ -19,7 +19,7 @@ describe(`${FavoriteComponents.FAVORITE_SHARE_EMAIL}`, () => {
   it('is a clickable mailto link, if there are favorites', () => {
     const wrapper = shallowMount(FavoriteShareEmail, {
       propsData: {
-        favoriteItems: [createMockFavoriteItem()],
+        [FavoriteProps.FAVORITE_ITEMS]: [createMockFavoriteItem()],
       },
     });
 

@@ -13,7 +13,7 @@ import createMockFavoriteItem from '../../../../factories/favorite/favoriteItem'
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('actions', () => {
+describe('FavoriteActions', () => {
   let context = {} as unknown as ActionContext<FavoriteState, RepoState>;
 
   beforeEach(() => {

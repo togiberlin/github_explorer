@@ -9,7 +9,7 @@ import createMockSearchParams from '../../../../factories/repo/searchParams';
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('actions', () => {
+describe('RepoActions', () => {
   let context = {} as unknown as ActionContext<RepoState, RepoState>;
 
   beforeEach(() => {

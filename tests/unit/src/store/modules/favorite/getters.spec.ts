@@ -3,7 +3,7 @@ import { FavoriteGetters } from '@/store/modules/favorite/types';
 import createMockFavoriteItem from '../../../../factories/favorite/favoriteItem';
 import createMockFavoriteState from '../../../../factories/favorite/favoriteState';
 
-describe('getters', () => {
+describe('FavoriteGetters', () => {
   const mockFavoriteItem = createMockFavoriteItem();
   const mockFavoriteState = createMockFavoriteState([mockFavoriteItem]);
 

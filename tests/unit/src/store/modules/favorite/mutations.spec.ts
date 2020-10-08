@@ -3,7 +3,7 @@ import { FavoriteMutations, FavoriteState } from '@/store/modules/favorite/types
 import createMockFavoriteItem from '../../../../factories/favorite/favoriteItem';
 import createMockFavoriteState from '../../../../factories/favorite/favoriteState';
 
-describe.skip('mutations', () => {
+describe('FavoriteMutations', () => {
   let mockFavoriteState: FavoriteState;
 
   beforeEach(() => {

@@ -1,6 +1,8 @@
-import Vuex, { Store } from 'vuex';
+import Vuex, { ActionTree, Store } from 'vuex';
 import FavoriteList from '@/components/favorite/FavoriteList.vue';
+import favoriteGetters from '@/store/modules/favorite/getters';
 import { FavoriteComponents } from '@/components/favorite/types';
+import { FavoriteActions, FavoriteGetters, FavoriteState } from '@/store/modules/favorite/types';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import createMockFavoriteItem from '../../../factories/favorite/favoriteItem';
 
@@ -9,19 +11,19 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe(`${FavoriteComponents.FAVORITE_LIST}`, () => {
-  let actions: any;
-  let getters: any;
-  let store: Store<any>;
+  let actions: ActionTree<FavoriteState, FavoriteState>;
+  let getters: jest.Mocked<typeof favoriteGetters>;
+  let store: Store<FavoriteState>;
 
   beforeEach(() => {
     actions = {
-      getFavoriteItems: jest.fn(),
-      removeAllFavoriteItems: jest.fn(),
+      [FavoriteActions.GET_FAVORITE_ITEMS]: jest.fn(),
+      [FavoriteActions.REMOVE_ALL_FAVORITE_ITEMS]: jest.fn(),
     };
     getters = {
-      favoriteItems: () => [createMockFavoriteItem()],
-      favoriteQuantity: () => 123,
-    };
+      [FavoriteGetters.FAVORITE_ITEMS]: () => [createMockFavoriteItem()],
+      [FavoriteGetters.FAVORITE_QUANTITY]: () => 123,
+    } as unknown as jest.Mocked<typeof favoriteGetters>;
     store = new Vuex.Store({
       actions, getters,
     });
@@ -40,9 +42,9 @@ describe(`${FavoriteComponents.FAVORITE_LIST}`, () => {
 
   it('renders a hint, if there are no favorites yet', () => {
     getters = {
-      favoriteItems: () => [],
-      favoriteQuantity: () => 123,
-    };
+      [FavoriteGetters.FAVORITE_ITEMS]: () => [],
+      [FavoriteGetters.FAVORITE_QUANTITY]: () => 123,
+    } as unknown as jest.Mocked<typeof favoriteGetters>;
     store = new Vuex.Store({
       actions, getters,
     });

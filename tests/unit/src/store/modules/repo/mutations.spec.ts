@@ -3,7 +3,7 @@ import { RepoMutations, RepoState } from '@/store/modules/repo/types';
 import createMockRepoItem from '../../../../factories/repo/repoItem';
 import createMockRepoState from '../../../../factories/repo/repoState';
 
-describe('mutations', () => {
+describe('RepoMutations', () => {
   let mockRepoState: RepoState;
 
   beforeEach(() => {

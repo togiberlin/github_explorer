@@ -3,7 +3,7 @@ import { RepoGetters } from '@/store/modules/repo/types';
 import createMockRepoState from '../../../../factories/repo/repoState';
 import createMockRepoItem from '../../../../factories/repo/repoItem';
 
-describe('getters', () => {
+describe('RepoGetters', () => {
   const mockRepoItem = createMockRepoItem();
   const mockRepoState = createMockRepoState([mockRepoItem]);
 

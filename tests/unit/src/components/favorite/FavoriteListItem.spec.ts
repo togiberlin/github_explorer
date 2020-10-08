@@ -1,8 +1,8 @@
-import Vuex from 'vuex';
-import favoriteActions from '@/store/modules/favorite/actions';
+import Vuex, { ActionTree } from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import FavoriteListItem from '@/components/favorite/FavoriteListItem.vue';
-import { FavoriteComponents } from '@/components/favorite/types';
+import { FavoriteComponents, FavoriteProps } from '@/components/favorite/types';
+import { FavoriteActions, FavoriteState } from '@/store/modules/favorite/types';
 import createMockFavoriteItem from '../../../factories/favorite/favoriteItem';
 
 const localVue = createLocalVue();
@@ -15,7 +15,7 @@ describe(`${FavoriteComponents.FAVORITE_LIST_ITEM}`, () => {
 
     const wrapper = shallowMount(FavoriteListItem, {
       propsData: {
-        favoriteItem: mockFavoriteItem,
+        [FavoriteProps.FAVORITE_ITEM]: mockFavoriteItem,
       },
     });
 
@@ -30,8 +30,8 @@ describe(`${FavoriteComponents.FAVORITE_LIST_ITEM}`, () => {
 
   it('has an icon element, which the removeFavoriteItem() method', () => {
     const actions = {
-      removeFavoriteItem: jest.fn(),
-    };
+      [FavoriteActions.REMOVE_FAVORITE_ITEM]: jest.fn(),
+    } as ActionTree<FavoriteState, FavoriteState>;
     const store = new Vuex.Store({
       actions,
     });
@@ -39,7 +39,7 @@ describe(`${FavoriteComponents.FAVORITE_LIST_ITEM}`, () => {
     const mockFavoriteItem = createMockFavoriteItem();
     const wrapper = shallowMount(FavoriteListItem, {
       propsData: {
-        favoriteItem: mockFavoriteItem,
+        [FavoriteProps.FAVORITE_ITEM]: mockFavoriteItem,
       },
       store,
       localVue,

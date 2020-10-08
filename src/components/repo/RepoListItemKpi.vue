@@ -22,7 +22,7 @@
     </span>
     <span class="pl-2">
       <i class="fa fa-question"></i>
-      <a :href="issuesUrl" class="pl-1">{{ repoItem.open_issues_count }} Issues </a>
+      <a :href="issuesUrl" class="pl-1">{{ repoItem.open_issues_count }} Issues</a>
     </span>
   </div>
 </template>

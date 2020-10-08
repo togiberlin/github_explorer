@@ -4,7 +4,7 @@ export default function createMockFavoriteState(
   favoriteItems: FavoriteItem[],
 ): FavoriteState {
   return {
-    favoriteItems: [...favoriteItems],
+    favoriteItems,
     httpError: null,
   };
 }

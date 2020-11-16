@@ -1,0 +1,51 @@
+{
+  "name": "github_explorer",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run serve\"",
+    "server": "node backend/server",
+    "serve": "vue-cli-service serve --watch",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "concurrently \"vue-cli-service test:e2e\" \"npm run server\"",
+    "test:e2e:headless": "concurrently \"vue-cli-service test:e2e --headless\" \"npm run server\"",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "core-js": "^3.6.5",
+    "mailto-link": "^1.0.0",
+    "vue": "^2.6.11",
+    "vue-loading-spinner": "^1.0.11",
+    "vuejs-paginate": "^2.1.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/chance": "^1.1.0",
+    "@types/jest": "^24.0.19",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-e2e-cypress": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^1.0.3",
+    "chance": "^1.1.7",
+    "concurrently": "^5.3.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "flush-promises": "^1.0.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "typescript": "~3.9.3",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
